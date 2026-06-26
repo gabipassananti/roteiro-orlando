@@ -1,0 +1,1899 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roteiro Orlando 2026 - Roteiro Premium Interativo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-main: #0a0b1e;
+            --bg-card: #131535;
+            --bg-card-hover: #1b1e4b;
+            --primary-gradient: linear-gradient(135deg, #1e3a8a, #581c87, #2563eb);
+            --magical-gradient: linear-gradient(135deg, #4f46e5, #7c3aed, #c084fc);
+            --gold: #f59e0b;
+            --gold-gradient: linear-gradient(135deg, #fbbf24, #d97706);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --accent-disney: #0063e5;
+            --accent-universal: #ff6a00;
+            --accent-compras: #10b981;
+            --accent-descanso: #8b5cf6;
+            --sidebar-width: 260px;
+            --transition-smooth: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg-main); color: var(--text-main); overflow-x: hidden; display: flex; }
+        h1, h2, h3, .brand-text { font-family: 'Montserrat', sans-serif; font-weight: 700; }
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-main); }
+        ::-webkit-scrollbar-thumb { background: var(--bg-card); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+
+        /* --- SIDEBAR NAV --- */
+        .sidebar { width: var(--sidebar-width); height: 100vh; background-color: #070814; border-right: 1px solid var(--border-color); position: fixed; top: 0; left: 0; display: flex; flex-direction: column; z-index: 100; transition: var(--transition-smooth); }
+        .sidebar-header { padding: 30px 24px; display: flex; align-items: center; gap: 12px; border-bottom: 1px solid var(--border-color); }
+        .sidebar-header i, .sidebar-header svg { font-size: 24px; background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .brand-text { font-size: 18px; letter-spacing: 1px; background: linear-gradient(135deg, #fff, var(--text-muted)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .sidebar-menu { list-style: none; padding: 24px 16px; display: flex; flex-direction: column; gap: 8px; flex-grow: 1; overflow-y: auto; }
+        .sidebar-item a { display: flex; align-items: center; gap: 14px; padding: 12px 16px; color: var(--text-muted); text-decoration: none; border-radius: 12px; font-weight: 500; font-size: 15px; transition: var(--transition-smooth); }
+        .sidebar-item a:hover, .sidebar-item.active a { color: #fff; background: var(--primary-gradient); box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2); }
+        .sidebar-item a i, .sidebar-item a svg { font-size: 18px; width: 24px; text-align: center; }
+
+        /* Mobile Header */
+        .mobile-header { display: none; width: 100%; height: 60px; background-color: #070814; border-bottom: 1px solid var(--border-color); position: fixed; top: 0; left: 0; z-index: 101; padding: 0 20px; align-items: center; justify-content: space-between; }
+        .menu-toggle { background: none; border: none; color: #fff; font-size: 22px; cursor: pointer; }
+
+        /* --- MAIN CONTENT CONTAINER --- */
+        .main-content { margin-left: var(--sidebar-width); width: calc(100% - var(--sidebar-width)); min-height: 100vh; transition: var(--transition-smooth); }
+
+        /* --- HERO SECTION --- */
+        .hero { min-height: 85vh; padding: 60px 40px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; border-bottom: 1px solid var(--border-color); position: relative; }
+        .hero-badge { background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); color: var(--gold); padding: 8px 16px; border-radius: 30px; font-size: 14px; font-weight: 600; margin-bottom: 24px; letter-spacing: 1px; text-transform: uppercase; animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4); } 70% { box-shadow: 0 0 0 10px rgba(245, 158, 11, 0); } 100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); } }
+        .hero h1 { font-size: 56px; font-weight: 800; line-height: 1.1; margin-bottom: 20px; text-shadow: 2px 2px 8px rgba(0,0,0,0.7); letter-spacing: -1px; }
+        .hero p { font-size: 20px; color: #f8fafc; max-width: 700px; margin-bottom: 40px; line-height: 1.6; text-shadow: 1px 1px 4px rgba(0,0,0,0.8); }
+        .hero-btn { background-color: var(--bg-card); border: 1px solid var(--border-color); padding: 20px; border-radius: 16px; color: #fff; text-decoration: none; display: flex; flex-direction: column; align-items: center; gap: 12px; font-weight: 600; font-size: 15px; transition: var(--transition-smooth); cursor: pointer; }
+        .hero-btn i, .hero-btn svg { font-size: 24px; transition: var(--transition-smooth); }
+        .hero-btn.btn-days i { color: #3b82f6; }
+        .hero-btn.btn-disney i, .hero-btn.btn-disney svg { color: #a855f7; }
+        .hero-btn.btn-universal i { color: #f97316; }
+        .hero-btn.btn-rest i { color: #ec4899; }
+        .hero-btn.btn-shop i { color: #10b981; }
+        .hero-btn:hover { transform: translateY(-5px); background-color: var(--bg-card-hover); border-color: rgba(255, 255, 255, 0.15); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); }
+        .hero-btn:hover i, .hero-btn:hover svg { transform: scale(1.15); }
+
+        /* --- GENERIC SECTION STYLING --- */
+        .section { padding: 80px 40px; border-bottom: 1px solid var(--border-color); }
+        .section-header { margin-bottom: 40px; position: relative; }
+        .section-tag { color: var(--gold); text-transform: uppercase; font-size: 13px; font-weight: 700; letter-spacing: 2px; margin-bottom: 8px; display: block; }
+        .section-title { font-size: 32px; font-weight: 700; position: relative; display: inline-block; padding-left: 15px; }
+        .section-title::before { content: ''; position: absolute; left: 0; top: 15%; height: 70%; width: 5px; background: var(--magical-gradient); border-radius: 4px; }
+
+        /* --- SECTION: MAPA INTERATIVO --- */
+        .map-wrapper { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px; padding: 24px; margin-top: 20px; }
+        .map-iframe-container { width: 100%; height: 500px; border-radius: 12px; overflow: hidden; margin-bottom: 24px; border: 1px solid var(--border-color); }
+        .map-legend { display: flex; flex-wrap: wrap; gap: 16px; font-size: 14px; color: var(--text-muted); margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid var(--border-color); }
+        .legend-item { display: flex; align-items: center; gap: 8px; font-weight: 500; }
+        .pin-azul { color: #3b82f6; } .pin-vermelho { color: #ef4444; } .pin-verde { color: #10b981; } .pin-roxo { color: #a855f7; } .pin-amarelo { color: #eab308; } .pin-cinza { color: #94a3b8; }
+        .btn-location { background: var(--primary-gradient); border: none; color: #fff; padding: 12px 24px; border-radius: 30px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; transition: var(--transition-smooth); }
+        .btn-location:hover { box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4); transform: translateY(-2px); }
+
+        /* --- SECTION: ROTEIRO POR DIA --- */
+        .filter-container { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 30px; }
+        .filter-btn { background-color: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-muted); padding: 10px 20px; border-radius: 30px; cursor: pointer; font-weight: 600; font-size: 14px; transition: var(--transition-smooth); }
+        .filter-btn:hover, .filter-btn.active { color: #fff; background: var(--magical-gradient); border-color: transparent; box-shadow: 0 4px 15px rgba(124, 58, 237, 0.25); }
+        .days-grid { display: flex; flex-direction: column; gap: 16px; }
+        .day-card { background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px; overflow: hidden; transition: var(--transition-smooth); }
+        .day-card:hover { border-color: rgba(255, 255, 255, 0.15); box-shadow: 0 8px 25px rgba(0,0,0,0.2); }
+        .day-header { padding: 20px 24px; display: grid; grid-template-columns: auto 1fr auto auto; align-items: center; gap: 20px; cursor: pointer; user-select: none; }
+        .day-number { background: var(--primary-gradient); padding: 10px 16px; border-radius: 12px; font-weight: 700; text-align: center; min-width: 85px; }
+        .day-number span { display: block; font-size: 11px; color: var(--text-muted); text-transform: uppercase; font-weight: 500; margin-bottom: 2px; }
+        .day-title-block h3 { font-size: 18px; margin-bottom: 4px; }
+        .day-title-block p { color: var(--text-muted); font-size: 14px; }
+        .day-badge { padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 600; text-transform: uppercase; }
+        .badge-disney { background: rgba(0, 99, 229, 0.15); color: #60a5fa; border: 1px solid rgba(0, 99, 229, 0.3); }
+        .badge-universal { background: rgba(249, 115, 22, 0.15); color: #fdba74; border: 1px solid rgba(249, 115, 22, 0.3); }
+        .badge-compras { background: rgba(16, 185, 129, 0.15); color: #6ee7b7; border: 1px solid rgba(16, 185, 129, 0.3); }
+        .badge-descanso { background: rgba(139, 92, 246, 0.15); color: #c084fc; border: 1px solid rgba(139, 92, 246, 0.3); }
+        .day-toggle-icon { font-size: 18px; color: var(--text-muted); transition: transform 0.3s ease; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: rgba(255,255,255,0.03); }
+        .day-card.expanded .day-toggle-icon { transform: rotate(180deg); color: var(--gold); background: rgba(245, 158, 11, 0.1); }
+        .day-content { max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0, 1, 0, 1); background-color: rgba(0, 0, 0, 0.15); border-top: 1px solid transparent; }
+        .day-card.expanded .day-content { max-height: 3000px; transition: max-height 0.5s cubic-bezier(1, 0, 1, 0); border-top: 1px solid var(--border-color); }
+        .day-details-inner { padding: 24px; display: grid; grid-template-columns: 2fr 1fr; gap: 24px; }
+        .timeline-blocks { display: flex; flex-direction: column; gap: 16px; }
+        .time-block { display: flex; gap: 16px; position: relative; }
+        .time-block::before { content: ''; position: absolute; left: 15px; top: 34px; bottom: -24px; width: 2px; background: var(--border-color); }
+        .time-block:last-child::before { display: none; }
+        .time-icon { width: 32px; height: 32px; border-radius: 50%; background: var(--bg-card-hover); border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--gold); flex-shrink: 0; z-index: 2; }
+        .time-info { background: rgba(255, 255, 255, 0.02); padding: 14px 18px; border-radius: 12px; border: 1px solid var(--border-color); width: 100%; }
+        .time-info strong { display: block; font-size: 12px; text-transform: uppercase; color: var(--gold); letter-spacing: 0.5px; margin-bottom: 4px; }
+        .time-info p { font-size: 14.5px; line-height: 1.5; }
+        .day-sidebar-info { display: flex; flex-direction: column; gap: 16px; }
+        .side-info-card { background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-color); padding: 16px; border-radius: 12px; }
+        .side-info-card h4 { font-size: 13px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+        .side-info-card h4 i { color: var(--gold); }
+        .side-info-card p { font-size: 14px; line-height: 1.4; }
+        .btn-proximity { display: inline-flex; align-items: center; gap: 8px; background: rgba(37, 99, 235, 0.15); color: #60a5fa; border: 1px solid rgba(37, 99, 235, 0.3); padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; margin-top: 10px; cursor: pointer; text-decoration: none; transition: var(--transition-smooth); }
+        .btn-proximity:hover { background: rgba(37, 99, 235, 0.3); color: #fff; }
+        .btn-album { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: rgba(139, 92, 246, 0.15); color: #c084fc; border: 1px solid rgba(139, 92, 246, 0.3); padding: 10px 16px; border-radius: 8px; font-size: 13px; font-weight: 600; margin-top: 12px; cursor: pointer; text-decoration: none; transition: var(--transition-smooth); width: 100%; }
+        .btn-album:hover { background: rgba(139, 92, 246, 0.3); color: #fff; }
+
+        /* --- PARKS GRID LAYOUT --- */
+        .parks-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
+        .park-card { background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: 20px; padding: 30px; display: flex; flex-direction: column; gap: 20px; transition: var(--transition-smooth); position: relative; overflow: hidden; }
+        .park-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; }
+        .disney-card::before { background: var(--accent-disney); }
+        .universal-card::before { background: var(--accent-universal); }
+        .outros-card::before { background: #22d3ee; }
+        .park-card:hover { transform: translateY(-5px); border-color: rgba(255,255,255,0.15); box-shadow: 0 12px 30px rgba(0,0,0,0.3); }
+        .park-title-area h3 { font-size: 24px; margin-bottom: 6px; }
+        .park-desc { font-size: 14px; color: var(--text-muted); line-height: 1.5; }
+        .park-details-list { display: flex; flex-direction: column; gap: 12px; margin-top: 10px; }
+        .park-detail-item strong { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--gold); text-transform: uppercase; margin-bottom: 4px; }
+        .park-detail-item h4 { font-size: 15px; color: #fff; margin: 10px 0 5px 0; padding-left: 20px; }
+        .park-detail-item p, .park-detail-item ul { font-size: 14px; color: var(--text-main); padding-left: 20px; line-height: 1.4; }
+        .park-detail-item ul { list-style-type: none; }
+        .park-detail-item ul li { position: relative; padding-left: 15px; margin-bottom: 4px; }
+        .park-detail-item ul li::before { content: "•"; color: var(--gold); position: absolute; left: 0; }
+
+        /* --- RESTAURANTS LIST --- */
+        .rest-tabs { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 30px; border-bottom: 1px solid var(--border-color); padding-bottom: 15px; }
+        .rest-tab-btn { background: none; border: none; color: var(--text-muted); padding: 10px 16px; font-size: 15px; font-weight: 600; cursor: pointer; transition: var(--transition-smooth); position: relative; }
+        .rest-tab-btn.active, .rest-tab-btn:hover { color: #fff; }
+        .rest-tab-btn.active::after { content: ''; position: absolute; bottom: -16px; left: 0; width: 100%; height: 3px; background: var(--magical-gradient); border-radius: 2px; }
+        .rest-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .rest-card { background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px; padding: 20px; display: flex; flex-direction: column; justify-content: center; gap: 8px; transition: var(--transition-smooth); }
+        .rest-card:hover { border-color: rgba(255,255,255,0.15); background-color: var(--bg-card-hover); }
+        .rest-info-top h4 { font-size: 18px; margin-bottom: 0px; display: flex; align-items: center; gap: 10px; }
+        .rest-info-top h4 i { color: var(--gold); }
+        .rest-meta { font-size: 13px; color: var(--gold); margin-top: 5px; font-weight: 600; }
+
+        /* --- COMPRAS SECTION --- */
+        .shop-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .shop-card { background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px; padding: 24px; transition: var(--transition-smooth); }
+        .shop-card:hover { transform: translateY(-4px); border-color: rgba(255,255,255,0.15); }
+        .shop-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+        .shop-header i { font-size: 20px; color: var(--accent-compras); }
+        .shop-header h3 { font-size: 19px; }
+        .shop-tips-list { list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 14px; }
+        .shop-tips-list li { display: flex; gap: 10px; line-height: 1.4; }
+        .shop-tips-list li i { color: var(--gold); margin-top: 3px; font-size: 12px; }
+
+        /* --- DICAS GERAIS --- */
+        .tips-accordion { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .tip-box { background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px; padding: 24px; }
+        .tip-box h3 { font-size: 17px; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; color: #fff; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; }
+        .tip-box h3 i { color: var(--gold); }
+        .tip-box p { font-size: 14px; color: var(--text-muted); line-height: 1.5; }
+
+        /* --- BACK TO TOP --- */
+        .back-to-top { position: fixed; bottom: 30px; right: 30px; background: var(--magical-gradient); color: white; width: 45px; height: 45px; border-radius: 50%; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 18px; opacity: 0; visibility: hidden; transition: var(--transition-smooth); z-index: 99; box-shadow: 0 4px 15px rgba(0,0,0,0.4); }
+        .back-to-top.show { opacity: 1; visibility: visible; }
+        .back-to-top:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(124, 58, 237, 0.4); }
+
+        /* --- RESPONSIVENESS --- */
+        @media (max-width: 992px) {
+            .sidebar { left: -100%; }
+            .sidebar.open { left: 0; }
+            .main-content { margin-left: 0; width: 100%; padding-top: 60px; }
+            .mobile-header { display: flex; }
+            .hero h1 { font-size: 38px; }
+            .hero p { font-size: 16px; }
+            .section { padding: 50px 20px; }
+            .day-header { grid-template-columns: 1fr; gap: 12px; text-align: center; justify-items: center; }
+            .day-details-inner { grid-template-columns: 1fr; }
+            .day-number { width: 100%; max-width: 150px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="mobile-header">
+        <div class="brand-text"><i class="fa-solid from-star"></i> Orlando 2026</div>
+        <button class="menu-toggle" id="menuToggle"><i class="fa-solid fa-bars"></i></button>
+    </div>
+
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+            <div class="brand-text">Orlando 2026</div>
+        </div>
+        <ul class="sidebar-menu">
+            <li class="sidebar-item active" data-section="inicio"><a href="#inicio"><i class="fa-solid fa-house"></i> Início</a></li>
+            <li class="sidebar-item" data-section="mapa"><a href="#mapa"><i class="fa-solid fa-map-location-dot"></i> Mapa da Viagem</a></li>
+            <li class="sidebar-item" data-section="roteiro"><a href="#roteiro"><i class="fa-solid fa-calendar-days"></i> Roteiro Diário</a></li>
+            <li class="sidebar-item" data-section="disney"><a href="#disney"><svg viewBox="0 0 512 512" style="width:1.25em; height:1.25em; fill:currentColor; position:relative; top:2px;"><path d="M410.2 87.2c-35-16.7-77.5-1.9-94.2 33.1-1.3 2.7-2.4 5.5-3.4 8.3C293 113.8 270.6 104 246 104s-47 9.8-66.6 24.6c-1-2.8-2.1-5.6-3.4-8.3-16.7-35-59.2-49.8-94.2-33.1-35 16.7-49.8 59.2-33.1 94.2 5.5 11.6 13.6 21.6 23.3 29.8C54 233.1 42 262.8 42 296c0 61.9 50.1 112 112 112h204c61.9 0 112-50.1 112-112 0-33.2-12-62.9-30-84.8 9.7-8.2 17.8-18.2 23.3-29.8 16.7-35 1.9-77.5-33.1-94.2zm-280.9 9.3c21-10 46.5-1.1 56.5 19.9 10 21 1.1 46.5-19.9 56.5-21 10-46.5 1.1-56.5-19.9-10-21-1.1-46.5 19.9-56.5zm271.8 162.7c0 44.2-35.8 80-80 80H154c-44.2 0-80-35.8-80-80 0-44.2 35.8-80 80-80h167.1c44.2 0 80 35.8 80 80zm25.6-86.3c-21-10-29.9-35.5-19.9-56.5 10-21 35.5-29.9 56.5-19.9 21 10 29.9 35.5 19.9 56.5-10 21-35.5 29.9-56.5 19.9z"/></svg> Parques Disney</a></li>
+            <li class="sidebar-item" data-section="universal"><a href="#universal"><i class="fa-solid fa-globe"></i> Universal Orlando</a></li>
+            <li class="sidebar-item" data-section="outros-parques"><a href="#outros-parques"><i class="fa-solid fa-ticket"></i> Outros Parques</a></li>
+            <li class="sidebar-item" data-section="restaurantes"><a href="#restaurantes"><i class="fa-solid fa-utensils"></i> Restaurantes</a></li>
+            <li class="sidebar-item" data-section="compras"><a href="#compras"><i class="fa-solid fa-bag-shopping"></i> Compras</a></li>
+            <li class="sidebar-item" data-section="dicas"><a href="#dicas"><i class="fa-solid fa-circle-info"></i> Dicas Gerais</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        
+        <section id="inicio" class="hero" style="background: linear-gradient(rgba(10, 11, 30, 0.75), rgba(10, 11, 30, 0.95)), url('capa.jpg') center/cover no-repeat; position: relative;">
+            <div class="hero-badge">Aventura Mágica Confirmada</div>
+            <h1>Roteiro Orlando 2026</h1>
+            <p>Prepare-se para viver 18 dias inesquecíveis explorando o que há de melhor no complexo Disney, Universal, Sea World, Busch Gardens, centros de compras emblemáticos e experiências gastronômicas surpreendentes.</p>
+            
+            <div class="hero-grid-buttons" style="display: flex; flex-direction: column; gap: 16px; width: 100%; max-width: 900px;">
+                <!-- Primeira Linha -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; width: 100%;">
+                    <a href="#mapa" class="hero-btn btn-days">
+                        <i class="fa-solid fa-map"></i>
+                        <span>Mapa Interativo</span>
+                    </a>
+                    <a href="#roteiro" class="hero-btn btn-disney" style="color: #60a5fa;">
+                        <i class="fa-solid fa-calendar-days"></i>
+                        <span>Roteiro de 18 Dias</span>
+                    </a>
+                    <a href="#universal" class="hero-btn btn-universal">
+                        <i class="fa-solid fa-circle-nodes"></i>
+                        <span>Parques & Atrações</span>
+                    </a>
+                    <a href="#compras" class="hero-btn btn-shop">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span>Guia Compras</span>
+                    </a>
+                </div>
+                <!-- Segunda Linha -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; width: 100%;">
+                    <a href="#disney" class="hero-btn btn-disney" style="color: #a855f7;">
+                        <svg viewBox="0 0 512 512" style="width:24px; height:24px; fill:currentColor; margin-bottom: 2px;"><path d="M410.2 87.2c-35-16.7-77.5-1.9-94.2 33.1-1.3 2.7-2.4 5.5-3.4 8.3C293 113.8 270.6 104 246 104s-47 9.8-66.6 24.6c-1-2.8-2.1-5.6-3.4-8.3-16.7-35-59.2-49.8-94.2-33.1-35 16.7-49.8 59.2-33.1 94.2 5.5 11.6 13.6 21.6 23.3 29.8C54 233.1 42 262.8 42 296c0 61.9 50.1 112 112 112h204c61.9 0 112-50.1 112-112 0-33.2-12-62.9-30-84.8 9.7-8.2 17.8-18.2 23.3-29.8 16.7-35 1.9-77.5-33.1-94.2zm-280.9 9.3c21-10 46.5-1.1 56.5 19.9 10 21 1.1 46.5-19.9 56.5-21 10-46.5 1.1-56.5-19.9-10-21-1.1-46.5 19.9-56.5zm271.8 162.7c0 44.2-35.8 80-80 80H154c-44.2 0-80-35.8-80-80 0-44.2 35.8-80 80-80h167.1c44.2 0 80 35.8 80 80zm25.6-86.3c-21-10-29.9-35.5-19.9-56.5 10-21 35.5-29.9 56.5-19.9 21 10 29.9 35.5 19.9 56.5-10 21-35.5 29.9-56.5 19.9z"/></svg>
+                        <span>Parques Disney</span>
+                    </a>
+                    <a href="#universal" class="hero-btn btn-universal" style="color: #f97316;">
+                        <i class="fa-solid fa-globe"></i>
+                        <span>Universal Orlando</span>
+                    </a>
+                    <a href="#outros-parques" class="hero-btn btn-universal" style="color: #22d3ee;">
+                        <i class="fa-solid fa-ticket"></i>
+                        <span>Outros Parques</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="mapa" class="section">
+            <div class="section-header">
+                <span class="section-tag">Navegação Integrada</span>
+                <h2 class="section-title">Mapa Interativo da Viagem</h2>
+            </div>
+            
+            <div class="map-wrapper">
+                <div class="map-legend">
+                    <div class="legend-item"><i class="fa-solid fa-location-dot pin-azul"></i> Parques</div>
+                    <div class="legend-item"><i class="fa-solid fa-location-dot pin-vermelho"></i> Restaurantes</div>
+                    <div class="legend-item"><i class="fa-solid fa-location-dot pin-verde"></i> Mercados</div>
+                    <div class="legend-item"><i class="fa-solid fa-location-dot pin-roxo"></i> Compras</div>
+                    <div class="legend-item"><i class="fa-solid fa-location-dot pin-amarelo"></i> Nossa Casa</div>
+                    <div class="legend-item"><i class="fa-solid fa-location-dot pin-cinza"></i> Outros</div>
+                </div>
+
+                <div class="filter-container" style="margin-bottom: 15px;">
+                    <button class="filter-btn active">Ver Todos</button>
+                    <button class="filter-btn">Filtrar Restaurantes</button>
+                    <button class="filter-btn">Filtrar Compras</button>
+                    <button class="filter-btn">Filtrar Parques</button>
+                </div>
+
+                <div class="map-iframe-container">
+                    <iframe src="https://www.google.com/maps/d/u/1/embed?mid=1dfL-m-sz_0vmx9-yo7UZVHMPilPys7w" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                
+                <button class="btn-location" onclick="alert('Funcionalidade de geolocalização ativada: Mostrando locais a 5km de distância, ordenados por proximidade.')">
+                    <i class="fa-solid fa-location-crosshairs"></i> Minha Localização (Onde estou?)
+                </button>
+            </div>
+        </section>
+
+        <section id="roteiro" class="section">
+            <div class="section-header">
+                <span class="section-tag">Cronograma Completo</span>
+                <h2 class="section-title">Roteiro de 18 Dias por Orlando</h2>
+            </div>
+
+            <div class="filter-container">
+                <button class="filter-btn active" data-filter="all">Todos os Dias</button>
+                <button class="filter-btn" data-filter="disney">Disney</button>
+                <button class="filter-btn" data-filter="universal">Universal</button>
+                <button class="filter-btn" data-filter="compras">Compras</button>
+                <button class="filter-btn" data-filter="descanso">Descanso & Lazer</button>
+            </div>
+
+            <div class="days-grid">
+                
+                <div class="day-card" data-category="descanso">
+                    <div class="day-header">
+                        <div class="day-number"><span>Dia 01</span>18/08</div>
+                        <div class="day-title-block">
+                            <h3>Chegada em Orlando & Compras Iniciais</h3>
+                            <p>Voo de GRU pousa às 19:50 no MCO.</p>
+                        </div>
+                        <span class="day-badge badge-descanso">Descanso</span>
+                        <div class="day-toggle-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                    </div>
+                    <div class="day-content">
+                        <div class="day-details-inner">
+                            <div class="timeline-blocks">
+                                <div class="time-block">
+                                    <div class="time-icon"><i class="fa-solid fa-plane-arrival"></i></div>
+                                    <div class="time-info"><strong>Noite</strong><p>Pouso no MCO (19:50). Vamos direto para o Walmart fazer as compras iniciais de mantimentos.</p></div>
+                                </div>
+                                <div class="time-block">
+                                    <div class="time-icon"><i class="fa-solid fa-house-chimney"></i></div>
+                                    <div class="time-info"><strong>Final da Noite</strong><p>Ir para casa alugada: Tranquility Way, Kissimmee, FL 34746.</p></div>
+                                </div>
+                            </div>
+                            <div class="day-sidebar-info">
+                                <div class="side-info-card"><h4><i class="fa-solid fa-map"></i> Integração Mapa</h4><p>Use o mapa para ver mercados próximos ao aeroporto ou no caminho de casa.</p><a href="#mapa" class="btn-proximity">Ver mercados próximos</a></div>
+                                <div class="side-info-card">
+                                    <h4><i class="fa-solid fa-camera"></i> Álbum do Dia</h4>
+                                    <p>Todas as fotos e vídeos deste dia ficam organizados nesta pasta compartilhada do Google Drive. Todos os participantes podem acessar e adicionar novas fotos ao longo da viagem.</p>
+                                    <a href="https://drive.google.com/drive/folders/1ghEVtAePKhvoTweCL-jgAODz84iwjM1z?usp=share_link" target="_blank" class="btn-album">
+                                        <i class="fa-solid fa-folder-open"></i> Abrir Álbum
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="day-card" data-category="disney">
+                    <div class="day-header">
+                        <div class="day-number"><span>Dia 02</span>19/08</div>
+                        <div class="day-title-block">
+                            <h3>Magic Kingdom</h3>
+                            <p>Parque: 09:00 às 22:00. Chegar na Main Street às 08:00.</p>
+                        </div>
+                        <span class="day-badge badge-disney">Disney</span>
+                        <div class="day-toggle-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                    </div>
+                    <div class="day-content">
+                        <div class="day-details-inner">
+                            <div class="timeline-blocks">
+                                <div class="time-block">
+                                    <div class="time-icon"><i class="fa-solid fa-car"></i></div>
+                                    <div class="time-info"><strong>Manhã</strong><p>Sair de casa: 06:50-07:00. Transporte de ida: Monorail.</p></div>
+                                </div>
+                                <div class="time-block">
+                                    <div class="time-icon"><i class="fa-solid fa-burger"></i></div>
+                                    <div class="time-info"><strong>Alimentação</strong><p>Main Street Bakery, Casey's Corner, Columbia Harbour House (ambiente climatizado e tranquilo). Pode levar lanches de casa (sem vidro/sem microondas).</p></div>
+                                </div>
+                                <div class="time-block">
+                                    <div class="time-icon"><i class="fa-solid fa-moon"></i></div>
+                                    <div class="time-info"><strong>Noite</strong><p>Transporte de Volta: Ferry Boat. Lembre-se: alguns brinquedos molham, ir com roupa de secagem rápida.</p></div>
+                                </div>
+                            </div>
+                            <div class="day-sidebar-info">
+                                <div class="side-info-card"><h4><i class="fa-solid fa-map"></i> Integração Mapa</h4><p>Visualizar restaurantes dentro do parque no mapa.</p><a href="#mapa" class="btn-proximity">Ver restaurantes próximos</a></div>
+                                <div class="side-info-card">
+                                    <h4><i class="fa-solid fa-camera"></i> Álbum do Dia</h4>
+                                    <p>Todas as fotos e vídeos deste dia ficam organizados nesta pasta compartilhada do Google Drive. Todos os participantes podem acessar e adicionar novas fotos ao longo da viagem.</p>
+                                    <a href="https://drive.google.com/drive/folders/1x_dFNkHKw14auOMBQ6dpFADntcZfBD_M?usp=share_link" target="_blank" class="btn-album">
+                                        <i class="fa-solid fa-folder-open"></i> Abrir Álbum
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="day-card" data-category="compras">
+                    <div class="day-header">
+                        <div class="day-number"><span>Dia 03</span>20/08</div>
+                        <div class="day-title-block">
+                            <h3>Dia de Compras</h3>
+                            <p>Dia inteiramente dedicado a compras em outlets.</p>
+                        </div>
+                        <span class="day-badge badge-compras">Compras</span>
+                        <div class="day-toggle-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                    </div>
+                    <div class="day-content">
+                        <div class="day-details-inner">
+                            <div class="timeline-blocks">
+                                <div class="time-block">
+                                    <div class="time-icon"><i class="fa-solid fa-bag-shopping"></i></div>
+                                    <div class="time-info"><strong>Dia Todo</strong><p>Aproveite os Premium Outlets e lojas de departamento da região. Consulte o Mapa Interativo para traçar as rotas.</p></div>
+                                </div>
+                            </div>
+                            <div class="day-sidebar-info">
+                                <div class="side-info-card"><h4><i class="fa-solid fa-map"></i> Integração Mapa</h4><p>Acesse o mapa para planejar sua rota de outlets e lojas.</p><a href="#mapa" class="btn-proximity">Ver lojas próximas</a></div>
+                                <div class="side-info-card">
+                                    <h4><i class="fa-solid fa-camera"></i> Álbum do Dia</h4>
+                                    <p>Todas as fotos e vídeos deste dia ficam organizados nesta pasta compartilhada do Google Drive. Todos os participantes podem acessar e adicionar novas fotos ao longo da viagem.</p>
+                                    <a href="https://drive.google.com/drive/folders/1PFSHJF4U4jpzUD23AvAPM4nnoSwdEKPl?usp=share_link" target="_blank" class="btn-album">
+                                        <i class="fa-solid fa-folder-open"></i> Abrir Álbum
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="day-card" data-category="disney">
+                    <div class="day-header">
+                        <div class="day-number"><span>Dia 04</span>21/08</div>
+                        <div class="day-title-block">
+                            <h3>Hollywood Studios</h3>
+                            <p>Parque: 09:00 - 22:00. Conferir horários dos shows logo pela manhã.</p>
+                        </div>
+                        <span class="day-badge badge-disney">Disney</span>
+                        <div class="day-toggle-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                    </div>
+                    <div class="day-content">
+                        <div class="day-details-inner">
+                            <div class="timeline-blocks">
+                                <div class="time-block">
+                                    <div class="time-icon"><i class="fa-solid fa-car"></i></div>
+                                    <div class="time-info"><strong>Manhã</strong><p>Sair de casa: 08:00.</p></div>
+                                </div>
+                                <div class="time-block">
+                                    <div class="time-icon"><i class="fa-solid fa-burger"></i></div>
+                                    <div class="time-info"><strong>Alimentação</strong><p>Woody's Lunch Box (Totchos), Ronto Roasters em Star Wars, ou jantar retrô no Sci-Fi Dine-In Theater.</p></div>
+                                </div>
+                            </div>
+                            <div class="day-sidebar-info">
+                                <div class="side-info-card"><h4><i class="fa-solid fa-lightbulb"></i> Mochila</h4><p>Cartão, Power Bank, Protetor solar, Capa de chuva.</p></div>
+                                <div class="side-info-card">
+                                    <h4><i class="fa-solid fa-camera"></i> Álbum do Dia</h4>
+                                    <p>Todas as fotos e vídeos deste dia ficam organizados nesta pasta compartilhada do Google Drive. Todos os participantes podem acessar e adicionar novas fotos ao longo da viagem.</p>
+                                    <a href="https://drive.google.com/drive/folders/1jVPTRK0std5MdbpI2-cEoeWXStjW0D_k?usp=share_link" target="_blank" class="btn-album">
+                                        <i class="fa-solid fa-folder-open"></i> Abrir Álbum
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="day-card" data-category="disney">
+                    <div class="day-header">
+                        <div class="day-number"><span>Dia 05</span>22/08</div>
+                        <div class="day-title-block">
+                            <h3>Animal Kingdom</h3>
+                            <p>Parque: 08:00 - 18:00. O parque fecha mais cedo.</p>
+                        </div>
+                        <span class="day-badge badge-disney">Disney</span>
+                        <div class="day-toggle-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                    </div>
+                    <div class="day-content">
+                        <div class="day-details-inner">
+                            <div class="timeline-blocks">
+                                <div class="time-block">
+                                    <div class="time-icon"><i class="fa-solid fa-car"></i></div>
+                                    <div class="time-info"><strong>Manhã</strong><p>Sair de casa: 07:10. Roupas de secagem rápida (brinquedos molham).</p></div>
+                                </div>
+                                <div class="time-block">
+                                    <div class="time-icon"><i class="fa-solid fa-burger"></i></div>
+                                    <div class="time-info"><strong>Alimentação</strong><p>Satu'li Canteen é a primeira opção (uma das melhores refeições da Disney com bowls personalizáveis). Prove o Night Blossom no Pongu Pongu.</p></div>
+                                </div>
+                            </div>
+                            <div class="day-sidebar-info">
+                                <div class="side-info-card"><h4><i class="fa-solid fa-map"></i> Integração Mapa</h4><p>Use o botão de proximidade para achar o Satu'li Canteen no mapa.</p><a href="#mapa" class="btn-proximity">Ver restaurantes próximos</a></div>
+                                <div class="side-info-card">
+                                    <h4><i class="fa-solid fa-camera"></i> Álbum do Dia</h4>
+                                    <p>Todas as fotos e vídeos deste dia ficam organizados nesta pasta compartilhada do Google Drive. Todos os participantes podem acessar e adicionar novas fotos ao longo da viagem.</p>
+                                    <a href="https://drive.google.com/drive/folders/135Xz-VaNiPFECcfmhejy83o3DfhGcpE-?usp=share_link" target="_blank" class="btn-album">
+                                        <i class="fa-solid fa-folder-open"></i> Abrir Álbum
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="day-card" data-category="universal">
+                    <div class="day-header">
+                        <div class="day-number"><span>Dia 06</span>23/08</div>
+                        <div class="day-title-block">
+                            <h3>Volcano Bay + Show de Fogos Universal</h3>
+                            <p>Volcano Bay abre: 09:00-19:00. Show de fogos: 21h.</p>
+                        </div>
+                        <span class="day-badge badge-universal">Universal</span>
+                        <div class="day-toggle-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                    </div>
+                    <div class="day-content">
+                        <div class="day-details-inner">
+                            <div class="timeline-blocks">
+                                <div class="time-block">
+                                    <div class="time-icon"><i class="fa-solid fa-water"></i></div>
+                                    <div class="time-info"><strong>Dia</strong><p>Aproveite o Volcano Bay das 09:00 às 19:00.</p></div>
+                                </div>
+                                <div class="time-block">
+                                    <div class="time-icon"><i class="fa-solid fa-fire-burst"></i></div>
+                                    <div class="time-info"><strong>Noite</strong><p>Deslocamento para a Universal Studios para assistir ao show de fogos às 21h.</p></div>
+                                </div>
+                            </div>
+                            <div class="day-sidebar-info">
+                                <div class="side-info-card">
+                                    <h4><i class="fa-solid fa-camera"></i> Álbum do Dia</h4>
+                                    <p>Todas as fotos e vídeos deste dia ficam organizados nesta pasta compartilhada do Google Drive. Todos os participantes podem acessar e adicionar novas fotos ao longo da viagem.</p>
+                                    <a href="https://drive.google.com/drive/folders/1Ru2KVJ9a_WzHK47WW9d7rx5fxUhB5WRT?usp=share_link" target="_blank" class="btn-album">
+                                        <i class="fa-solid fa-folder-open"></i> Abrir Álbum
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="day-card" data-category="disney">
+                    <div class="day-header">
+                        <div class="day-number"><span>Dia 07</span>24/08</div>
+                        <div class="day-title-block">
+                            <h3>EPCOT</h3>
+                            <p>Parque: 09:00 - 21:00. Dia de Drinking around the world!</p>
+                        </div>
+                        <span class="day-badge badge-disney">Disney</span>
+                        <div class="day-toggle-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                    </div>
+                    <div class="day-content">
+                        <div class="day-details-inner">
+                            <div class="timeline-blocks">
+                                <div class="time-block">
+                                    <div class="time-icon"><i class="fa-solid fa-car"></i></div>
+                                    <div class="time-info"><strong>Manhã</strong><p>Sair de casa: 08:00. Não esqueça de levar o Passaporte!</p></div>
+                                </div>
+                                <div class="time-block">
+                                    <div class="time-icon"><i class="fa-solid fa-champagne-glasses"></i></div>
+                                    <div class="time-info"><strong>Dia Todo</strong><p>Destaques do Drinking Around The World: Margarita Avocado (México), Viking Coffee (Noruega), Tipsy Ducks in Love (China), Cerveja (Alemanha), Violet Sake (Japão).</p></div>
+                                </div>
+                                <div class="time-block">
+                                    <div class="time-icon"><i class="fa-solid fa-burger"></i></div>
+                                    <div class="time-info"><strong>Alimentação</strong><p>Sunshine Seasons (melhor custo-benefício), Kringla Bakeri Og Kafe (School Bread), e Les Halles Boulangerie-Patisserie na França.</p></div>
+                                </div>
+                            </div>
+                            <div class="day-sidebar-info">
+                                <div class="side-info-card"><h4><i class="fa-solid fa-eye"></i> Visualização</h4><p>Melhor área para assistir aos fogos é no pavilhão da Itália.</p></div>
+                                <div class="side-info-card">
+                                    <h4><i class="fa-solid fa-camera"></i> Álbum do Dia</h4>
+                                    <p>Todas as fotos e vídeos deste dia ficam organizados nesta pasta compartilhada do Google Drive. Todos os participantes podem acessar e adicionar novas fotos ao longo da viagem.</p>
+                                    <a href="https://drive.google.com/drive/folders/1TIcsjZEps2JfEUfXNlexcAEeZYkVo5AN?usp=share_link" target="_blank" class="btn-album">
+                                        <i class="fa-solid fa-folder-open"></i> Abrir Álbum
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="day-card" data-category="universal">
+                    <div class="day-header">
+                        <div class="day-number"><span>Dia 08</span>25/08</div>
+                        <div class="day-title-block">
+                            <h3>Universal Studios</h3>
+                            <p>Parque: 08:00 - 18:00. Levar Copo da Universal.</p>
+                        </div>
+                        <span class="day-badge badge-universal">Universal</span>
+                        <div class="day-toggle-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                    </div>
+                    <div class="day-content">
+                        <div class="day-details-inner">
+                            <div class="timeline-blocks">
+                                <div class="time-block">
+                                    <div class="time-icon"><i class="fa-solid fa-car"></i></div>
+                                    <div class="time-info"><strong>Manhã</strong><p>Sair de casa: 06:40. Opte por pochete ou mochila menor pois há lockers na maioria dos brinquedos.</p></div>
+                                </div>
+                                <div class="time-block">
+                                    <div class="time-icon"><i class="fa-solid fa-burger"></i></div>
+                                    <div class="time-info"><strong>Alimentação</strong><p>Leaky Cauldron, Florean Fortescue's Ice-Cream Parlour e quiosques de Butterbeer na área de Harry Potter.</p></div>
+                                </div>
+                            </div>
+                            <div class="day-sidebar-info">
+                                <div class="side-info-card">
+                                    <h4><i class="fa-solid fa-camera"></i> Álbum do Dia</h4>
+                                    <p>Todas as fotos e vídeos deste dia ficam organizados nesta pasta compartilhada do Google Drive. Todos os participantes podem acessar e adicionar novas fotos ao longo da viagem.</p>
+                                    <a href="https://drive.google.com/drive/folders/1NDgqwhxEDDU18QbHAyFo3yr6lLxIbeu3?usp=share_link" target="_blank" class="btn-album">
+                                        <i class="fa-solid fa-folder-open"></i> Abrir Álbum
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="day-card" data-category="universal">
+                    <div class="day-header">
+                        <div class="day-number"><span>Dia 09</span>26/08</div>
+                        <div class="day-title-block">
+                            <h3>Island of Adventure</h3>
+                            <p>Parque: 09:00 - 21:00. Brinquedos molham MUITO.</p>
+                        </div>
+                        <span class="day-badge badge-universal">Universal</span>
+                        <div class="day-toggle-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                    </div>
+                    <div class="day-content">
+                        <div class="day-details-inner">
+                            <div class="timeline-blocks">
+                                <div class="time-block">
+                                    <div class="time-icon"><i class="fa-solid fa-car"></i></div>
+                                    <div class="time-info"><strong>Manhã</strong><p>Sair de casa: 07:30. Levar pochete, copo da Universal e passaporte (caso role uma cervejinha).</p></div>
+                                </div>
+                                <div class="time-block">
+                                    <div class="time-icon"><i class="fa-solid fa-burger"></i></div>
+                                    <div class="time-info"><strong>Alimentação</strong><p>Three Broomsticks em Hogsmeade e Thunder Falls Terrace no Jurassic Park.</p></div>
+                                </div>
+                            </div>
+                            <div class="day-sidebar-info">
+                                <div class="side-info-card">
+                                    <h4><i class="fa-solid fa-camera"></i> Álbum do Dia</h4>
+                                    <p>Todas as fotos e vídeos deste dia ficam organizados nesta pasta compartilhada do Google Drive. Todos os participantes podem acessar e adicionar novas fotos ao longo da viagem.</p>
+                                    <a href="https://drive.google.com/drive/folders/1TfWfXh8tqepNCnQ0hVVVfmWI6R8ccY4c?usp=share_link" target="_blank" class="btn-album">
+                                        <i class="fa-solid fa-folder-open"></i> Abrir Álbum
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="day-card" data-category="outros">
+                    <div class="day-header">
+                        <div class="day-number"><span>Dia 10</span>27/08</div>
+                        <div class="day-title-block">
+                            <h3>Sea World</h3>
+                            <p>Parque: 09:00 - 19:00. Utilizar o Dining Plan.</p>
+                        </div>
+                        <span class="day-badge badge-outros">Outros Parques</span>
+                        <div class="day-toggle-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                    </div>
+                    <div class="day-content">
+                        <div class="day-details-inner">
+                            <div class="timeline-blocks">
+                                <div class="time-block">
+                                    <div class="time-icon"><i class="fa-solid fa-car"></i></div>
+                                    <div class="time-info"><strong>Manhã</strong><p>Sair de casa: 08:00. Café da manhã via Dining Plan no Seafire Grill ou Panini Shore Café (até aprox. 11h).</p></div>
+                                </div>
+                                <div class="time-block">
+                                    <div class="time-icon"><i class="fa-solid fa-burger"></i></div>
+                                    <div class="time-info"><strong>Refeições (Dining Plan)</strong><p>Voyager's Smokehouse, Expedition Café, Lakeside Grill, etc.</p></div>
+                                </div>
+                            </div>
+                            <div class="day-sidebar-info">
+                                <div class="side-info-card">
+                                    <h4><i class="fa-solid fa-camera"></i> Álbum do Dia</h4>
+                                    <p>Todas as fotos e vídeos deste dia ficam organizados nesta pasta compartilhada do Google Drive. Todos os participantes podem acessar e adicionar novas fotos ao longo da viagem.</p>
+                                    <a href="https://drive.google.com/drive/folders/13Dp50_AwPUys9lj9SL9eK6wJncfXD2Jd?usp=share_link" target="_blank" class="btn-album">
+                                        <i class="fa-solid fa-folder-open"></i> Abrir Álbum
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="day-card" data-category="compras">
+                    <div class="day-header">
+                        <div class="day-number"><span>Dia 11</span>28/08</div>
+                        <div class="day-title-block">
+                            <h3>Compras + Universal (Repetição) + City Walk</h3>
+                            <p>Universal Studios (08-17h) e Island of Adventure (09-21h).</p>
+                        </div>
+                        <span class="day-badge badge-compras">Misto</span>
+                        <div class="day-toggle-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                    </div>
+                    <div class="day-content">
+                        <div class="day-details-inner">
+                            <div class="timeline-blocks">
+                                <div class="time-block">
+                                    <div class="time-icon"><i class="fa-solid fa-rotate-right"></i></div>
+                                    <div class="time-info"><strong>Dia Todo</strong><p>Divida o dia entre as compras pendentes, e repita os brinquedos preferidos nos complexos da Universal, fechando a noite no City Walk.</p></div>
+                                </div>
+                            </div>
+                            <div class="day-sidebar-info">
+                                <div class="side-info-card"><h4><i class="fa-solid fa-map"></i> Integração Mapa</h4><p>Use a função "Minha Localização" no mapa para achar lojas próximas à Universal.</p><a href="#mapa" class="btn-proximity">Ver locais próximos</a></div>
+                                <div class="side-info-card">
+                                    <h4><i class="fa-solid fa-camera"></i> Álbum do Dia</h4>
+                                    <p>Todas as fotos e vídeos deste dia ficam organizados nesta pasta compartilhada do Google Drive. Todos os participantes podem acessar e adicionar novas fotos ao longo da viagem.</p>
+                                    <a href="https://drive.google.com/drive/folders/1ZSp3RiElOv2m2RqUxKdxjETePFhqAnp1?usp=share_link" target="_blank" class="btn-album">
+                                        <i class="fa-solid fa-folder-open"></i> Abrir Álbum
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="day-card" data-category="outros">
+                    <div class="day-header">
+                        <div class="day-number"><span>Dia 12</span>29/08</div>
+                        <div class="day-title-block">
+                            <h3>Busch Gardens</h3>
+                            <p>Uso de Dining Plan incluído. Troca de roupa recomendada pois há brinquedos que molham.</p>
+                        </div>
+                        <span class="day-badge badge-outros">Outros Parques</span>
+                        <div class="day-toggle-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                    </div>
+                    <div class="day-content">
+                        <div class="day-details-inner">
+                            <div class="timeline-blocks">
+                                <div class="time-block">
+                                    <div class="time-icon"><i class="fa-solid fa-coffee"></i></div>
+                                    <div class="time-info"><strong>Manhã</strong><p>Café da manhã no Zagora Café ou Chick-fil-A.</p></div>
+                                </div>
+                                <div class="time-block">
+                                    <div class="time-icon"><i class="fa-solid fa-utensils"></i></div>
+                                    <div class="time-info"><strong>Refeições (Dining Plan)</strong><p>Zambia Smokehouse, Dragon Fire Grill, e TOMA at Orang Café.</p></div>
+                                </div>
+                            </div>
+                            <div class="day-sidebar-info">
+                                <div class="side-info-card">
+                                    <h4><i class="fa-solid fa-camera"></i> Álbum do Dia</h4>
+                                    <p>Todas as fotos e vídeos deste dia ficam organizados nesta pasta compartilhada do Google Drive. Todos os participantes podem acessar e adicionar novas fotos ao longo da viagem.</p>
+                                    <a href="https://drive.google.com/drive/folders/1NYX2oVjwmP49A19OKsOfLAB6EEWf2XrN?usp=share_link" target="_blank" class="btn-album">
+                                        <i class="fa-solid fa-folder-open"></i> Abrir Álbum
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="day-card" data-category="universal">
+                    <div class="day-header">
+                        <div class="day-number"><span>Dia 13</span>30/08</div>
+                        <div class="day-title-block">
+                            <h3>Epic Universe</h3>
+                            <p>Levar copo refill da Universal e ficar até o fechamento para ver o parque iluminado.</p>
+                        </div>
+                        <span class="day-badge badge-universal">Universal</span>
+                        <div class="day-toggle-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                    </div>
+                    <div class="day-content">
+                        <div class="day-details-inner">
+                            <div class="timeline-blocks">
+                                <div class="time-block">
+                                    <div class="time-icon"><i class="fa-solid fa-sun"></i></div>
+                                    <div class="time-info"><strong>Dia Todo</strong><p>Explore as áreas temáticas: Super Nintendo World, Ministry of Magic, Isle of Berk e Dark Universe.</p></div>
+                                </div>
+                                <div class="time-block">
+                                    <div class="time-icon"><i class="fa-solid fa-moon"></i></div>
+                                    <div class="time-info"><strong>Noite</strong><p>Tentar deixar a montanha-russa Stardust Racers para o final do dia (último carrinho de dia ou primeiro da noite).</p></div>
+                                </div>
+                            </div>
+                            <div class="day-sidebar-info">
+                                <div class="side-info-card"><h4><i class="fa-solid fa-burger"></i> Restaurantes Epic</h4><p>Toadstool Café, Café L'air de la Sirène, Das Stakehaus, Meteor Astropub.</p></div>
+                                <div class="side-info-card">
+                                    <h4><i class="fa-solid fa-camera"></i> Álbum do Dia</h4>
+                                    <p>Todas as fotos e vídeos deste dia ficam organizados nesta pasta compartilhada do Google Drive. Todos os participantes podem acessar e adicionar novas fotos ao longo da viagem.</p>
+                                    <a href="https://drive.google.com/drive/folders/1rFGhh2BjjiXcH00Sx-jXQ_8BlPMVkHm7?usp=share_link" target="_blank" class="btn-album">
+                                        <i class="fa-solid fa-folder-open"></i> Abrir Álbum
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="day-card" data-category="descanso">
+                    <div class="day-header">
+                        <div class="day-number"><span>Dia 14</span>31/08</div>
+                        <div class="day-title-block">
+                            <h3>Descanso + Parque Público + Compras</h3>
+                            <p>Dia para relaxar e fazer compras pontuais em shoppings.</p>
+                        </div>
+                        <span class="day-badge badge-descanso">Descanso</span>
+                        <div class="day-toggle-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                    </div>
+                    <div class="day-content">
+                        <div class="day-details-inner">
+                            <div class="timeline-blocks">
+                                <div class="time-block">
+                                    <div class="time-icon"><i class="fa-solid fa-tree"></i></div>
+                                    <div class="time-info"><strong>Dia</strong><p>Aproveite um parque público local para descansar da rotina intensa e visite lojas faltantes na região usando o Mapa.</p></div>
+                                </div>
+                            </div>
+                            <div class="day-sidebar-info">
+                                <div class="side-info-card">
+                                    <h4><i class="fa-solid fa-camera"></i> Álbum do Dia</h4>
+                                    <p>Todas as fotos e vídeos deste dia ficam organizados nesta pasta compartilhada do Google Drive. Todos os participantes podem acessar e adicionar novas fotos ao longo da viagem.</p>
+                                    <a href="https://drive.google.com/drive/folders/1wtgEfJTQBn1C2RXRkWhGpUXSBU5R9XNu?usp=share_link" target="_blank" class="btn-album">
+                                        <i class="fa-solid fa-folder-open"></i> Abrir Álbum
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="day-card" data-category="universal">
+                    <div class="day-header">
+                        <div class="day-number"><span>Dia 15</span>01/09</div>
+                        <div class="day-title-block">
+                            <h3>Repetir Epic Universe + Compras</h3>
+                            <p>Dia extra para focar no que faltou no Epic Universe e compras de última hora.</p>
+                        </div>
+                        <span class="day-badge badge-universal">Universal</span>
+                        <div class="day-toggle-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                    </div>
+                    <div class="day-content">
+                        <div class="day-details-inner">
+                            <div class="timeline-blocks">
+                                <div class="time-block">
+                                    <div class="time-icon"><i class="fa-solid fa-rotate-right"></i></div>
+                                    <div class="time-info"><strong>O Dia Todo</strong><p>Retorno ao Epic Universe para repetir as atrações favoritas e mais compras.</p></div>
+                                </div>
+                            </div>
+                            <div class="day-sidebar-info">
+                                <div class="side-info-card">
+                                    <h4><i class="fa-solid fa-camera"></i> Álbum do Dia</h4>
+                                    <p>Todas as fotos e vídeos deste dia ficam organizados nesta pasta compartilhada do Google Drive. Todos os participantes podem acessar e adicionar novas fotos ao longo da viagem.</p>
+                                    <a href="https://drive.google.com/drive/folders/1SXEM-5NpQl7553sOYRsqJEJDlFbKhRmX?usp=share_link" target="_blank" class="btn-album">
+                                        <i class="fa-solid fa-folder-open"></i> Abrir Álbum
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="day-card" data-category="descanso">
+                    <div class="day-header">
+                        <div class="day-number"><span>Dia 16</span>02/09</div>
+                        <div class="day-title-block">
+                            <h3>Aniver Chris + Churrasco em casa + Universal</h3>
+                            <p>Dia de comemoração especial!</p>
+                        </div>
+                        <span class="day-badge badge-descanso">Especial</span>
+                        <div class="day-toggle-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                    </div>
+                    <div class="day-content">
+                        <div class="day-details-inner">
+                            <div class="timeline-blocks">
+                                <div class="time-block">
+                                    <div class="time-icon"><i class="fa-solid fa-cake-candles"></i></div>
+                                    <div class="time-info"><strong>Dia</strong><p>Churrasco comemorativo na casa alugada.</p></div>
+                                </div>
+                                <div class="time-block">
+                                    <div class="time-icon"><i class="fa-solid fa-moon"></i></div>
+                                    <div class="time-info"><strong>Noite</strong><p>Ida aos parques da Universal para curtir a noite do aniversário.</p></div>
+                                </div>
+                            </div>
+                            <div class="day-sidebar-info">
+                                <div class="side-info-card">
+                                    <h4><i class="fa-solid fa-camera"></i> Álbum do Dia</h4>
+                                    <p>Todas as fotos e vídeos deste dia ficam organizados nesta pasta compartilhada do Google Drive. Todos os participantes podem acessar e adicionar novas fotos ao longo da viagem.</p>
+                                    <a href="https://drive.google.com/drive/folders/1Hy-NoSwg57qOf3aRnwwc5VlAGBCOJPSR?usp=share_link" target="_blank" class="btn-album">
+                                        <i class="fa-solid fa-folder-open"></i> Abrir Álbum
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="day-card" data-category="descanso">
+                    <div class="day-header">
+                        <div class="day-number"><span>Dia 17</span>03/09</div>
+                        <div class="day-title-block">
+                            <h3>Praia Daytona Beach</h3>
+                            <p>Passeio até a costa leste da Flórida.</p>
+                        </div>
+                        <span class="day-badge badge-descanso">Descanso</span>
+                        <div class="day-toggle-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                    </div>
+                    <div class="day-content">
+                        <div class="day-details-inner">
+                            <div class="timeline-blocks">
+                                <div class="time-block">
+                                    <div class="time-icon"><i class="fa-solid fa-umbrella-beach"></i></div>
+                                    <div class="time-info"><strong>Dia Todo</strong><p>Visitar Daytona Beach Pier (1200 Main St.), Daytona International Speedway (1801 W. Int. Speedway Blvd) e compras no Daytona Outlet (1100 Cornerstone Blvd).</p></div>
+                                </div>
+                            </div>
+                            <div class="day-sidebar-info">
+                                <div class="side-info-card"><h4><i class="fa-solid fa-clock"></i> Horário do Outlet</h4><p>Daytona Outlet funciona das 10:00 AM às 9:00 PM.</p></div>
+                                <div class="side-info-card">
+                                    <h4><i class="fa-solid fa-camera"></i> Álbum do Dia</h4>
+                                    <p>Todas as fotos e vídeos deste dia ficam organizados nesta pasta compartilhada do Google Drive. Todos os participantes podem acessar e adicionar novas fotos ao longo da viagem.</p>
+                                    <a href="https://drive.google.com/drive/folders/1xUDDPmzQvFl8ooUBz4KVuEOT_s4si6xK?usp=share_link" target="_blank" class="btn-album">
+                                        <i class="fa-solid fa-folder-open"></i> Abrir Álbum
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="day-card" data-category="universal">
+                    <div class="day-header">
+                        <div class="day-number"><span>Dia 18</span>04/09</div>
+                        <div class="day-title-block">
+                            <h3>Despedida Universal + Arrumar Mala</h3>
+                            <p>Último dia para repetir os parques da Universal e organizar o retorno.</p>
+                        </div>
+                        <span class="day-badge badge-universal">Universal</span>
+                        <div class="day-toggle-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                    </div>
+                    <div class="day-content">
+                        <div class="day-details-inner">
+                            <div class="timeline-blocks">
+                                <div class="time-block">
+                                    <div class="time-icon"><i class="fa-solid fa-rotate-right"></i></div>
+                                    <div class="time-info"><strong>Dia</strong><p>Visita final ao Universal Studios e Island of Adventure.</p></div>
+                                </div>
+                                <div class="time-block">
+                                    <div class="time-icon"><i class="fa-solid fa-suitcase"></i></div>
+                                    <div class="time-info"><strong>Noite</strong><p>Arrumar as malas pesadas, organizar compras e descanso final.</p></div>
+                                </div>
+                            </div>
+                            <div class="day-sidebar-info">
+                                <div class="side-info-card">
+                                    <h4><i class="fa-solid fa-camera"></i> Álbum do Dia</h4>
+                                    <p>Todas as fotos e vídeos deste dia ficam organizados nesta pasta compartilhada do Google Drive. Todos os participantes podem acessar e adicionar novas fotos ao longo da viagem.</p>
+                                    <a href="https://drive.google.com/drive/folders/12TObHo0SZ28VRSoJnJBW9k_BZkYLraBA?usp=share_link" target="_blank" class="btn-album">
+                                        <i class="fa-solid fa-folder-open"></i> Abrir Álbum
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="outros-parques" class="section">
+            <div class="section-header">
+                <span class="section-tag">Mais Aventuras</span>
+                <h2 class="section-title">Outros Parques</h2>
+            </div>
+            
+            <div class="parks-grid">
+                
+                <div class="park-card outros-card">
+                    <div class="park-title-area">
+                        <h3>Sea World</h3>
+                        <p class="park-desc">Encontros com a vida marinha e montanhas-russas radicais.</p>
+                    </div>
+                    <div class="park-details-list">
+                        <div class="side-info-card" style="margin-bottom: 20px; border-left: 4px solid var(--gold);">
+                            <h4><i class="fa-solid fa-clipboard-list"></i> Resumo do Dia</h4>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 10px;">
+                                <div>
+                                    <strong style="color: var(--gold); font-size: 12px; text-transform: uppercase;">🎒 O que levar</strong>
+                                    <ul style="list-style-type: none; padding: 0; margin-top: 5px;">
+                                        <li><i class="fa-solid fa-check" style="color: #22d3ee; font-size: 10px; margin-right: 5px;"></i>Cartão de crédito/débito</li>
+                                        <li><i class="fa-solid fa-check" style="color: #22d3ee; font-size: 10px; margin-right: 5px;"></i>Power Bank</li>
+                                        <li><i class="fa-solid fa-check" style="color: #22d3ee; font-size: 10px; margin-right: 5px;"></i>Protetor solar e Capa de chuva</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <strong style="color: var(--gold); font-size: 12px; text-transform: uppercase;">ℹ️ O que devo saber</strong>
+                                    <ul style="list-style-type: none; padding: 0; margin-top: 5px;">
+                                        <li><i class="fa-solid fa-info-circle" style="color: var(--text-muted); font-size: 10px; margin-right: 5px;"></i>Horário: 09:00 às 19:00</li>
+                                        <li><i class="fa-solid fa-info-circle" style="color: var(--text-muted); font-size: 10px; margin-right: 5px;"></i>Sair de casa: 08:00</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="park-detail-item">
+                            <strong><i class="fa-solid fa-clock"></i> Horários</strong>
+                            <p>Parque: 09:00 - 19:00. Sair de casa: 08:00.</p>
+                        </div>
+                        <div class="park-detail-item">
+                            <strong><i class="fa-solid fa-utensils"></i> Restaurantes (Dining Plan)</strong>
+                            <ul>
+                                <li>Voyager's Smokehouse - brisket, costela, frango defumado</li>
+                                <li>Waterway Grill - pratos com arroz, frango e opções mais completas</li>
+                                <li>Altitude Burgers - hambúrgueres e batata frita</li>
+                                <li>Expedition Café - comida asiática, mediterrânea e bowls</li>
+                                <li>Lakeside Grill - tacos, rice bowls, hambúrgueres</li>
+                                <li>Seafire Grill - chicken sandwich, chicken bites e saladas</li>
+                                <li>Seaport Pizza - pizza e breadsticks</li>
+                                <li>Mama's Pretzel Kitchen - pretzels recheados</li>
+                                <li>Panini Shore Café - sanduíches, doces e café</li>
+                                <li>Glacier Bar - sorvetes e frozen drinks</li>
+                            </ul>
+                            <h4>Café da Manhã (Dining Plan)</h4>
+                            <ul>
+                                <li>Seafire Grill - muffins, croissants, frutas, café (até aprox 11h)</li>
+                                <li>Panini Shore Café - opções de café da manhã (até aprox 11h)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="park-card outros-card">
+                    <div class="park-title-area">
+                        <h3>Busch Gardens</h3>
+                        <p class="park-desc">Uma mistura emocionante de zoológico e parque de diversões.</p>
+                    </div>
+                    <div class="park-details-list">
+                        <div class="side-info-card" style="margin-bottom: 20px; border-left: 4px solid var(--gold);">
+                            <h4><i class="fa-solid fa-clipboard-list"></i> Resumo do Dia</h4>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 10px;">
+                                <div>
+                                    <strong style="color: var(--gold); font-size: 12px; text-transform: uppercase;">🎒 O que levar</strong>
+                                    <ul style="list-style-type: none; padding: 0; margin-top: 5px;">
+                                        <li><i class="fa-solid fa-check" style="color: #22d3ee; font-size: 10px; margin-right: 5px;"></i>Cartão de crédito/débito</li>
+                                        <li><i class="fa-solid fa-check" style="color: #22d3ee; font-size: 10px; margin-right: 5px;"></i>Power Bank</li>
+                                        <li><i class="fa-solid fa-check" style="color: #22d3ee; font-size: 10px; margin-right: 5px;"></i>Protetor solar e Capa de chuva</li>
+                                        <li><i class="fa-solid fa-check" style="color: #22d3ee; font-size: 10px; margin-right: 5px;"></i>Troca de roupa ou roupa confortável</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <strong style="color: var(--gold); font-size: 12px; text-transform: uppercase;">ℹ️ O que devo saber</strong>
+                                    <ul style="list-style-type: none; padding: 0; margin-top: 5px;">
+                                        <li><i class="fa-solid fa-info-circle" style="color: var(--text-muted); font-size: 10px; margin-right: 5px;"></i>Tem brinquedos que molham muito</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="park-detail-item">
+                            <strong><i class="fa-solid fa-backpack"></i> Roupas</strong>
+                            <p>Troca de roupa ou roupa confortável - tem roupa que molha.</p>
+                        </div>
+                        <div class="park-detail-item">
+                            <strong><i class="fa-solid fa-utensils"></i> Restaurantes (Dining Plan)</strong>
+                            <ul>
+                                <li>Zambia Smokehouse - brisket, costela, carnes defumadas</li>
+                                <li>Dragon Fire Grill - hambúrguer, pizza, bowls asiáticos</li>
+                                <li>Chick-fil-A - sanduíches de frango, nuggets e waffle fries</li>
+                                <li>Zagora Café - sanduíches, wraps e opções rápidas</li>
+                                <li>Sheikra Eats - hambúrgueres, chicken tenders</li>
+                                <li>TOMA at Orang Café - bowls, tacos, culinária latina</li>
+                            </ul>
+                            <h4>Café da Manhã</h4>
+                            <ul>
+                                <li>Zagora Café - café, muffins, doces, frutas</li>
+                                <li>Chick-fil-A - sanduíche de café da manhã (dependendo do horário)</li>
+                                <li>Dragon Fire Grill - em algumas épocas oferece itens na abertura</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="disney" class="section">
+            <div class="section-header">
+                <span class="section-tag">Complexo de Entretenimento</span>
+                <h2 class="section-title">Parques Temáticos Walt Disney World</h2>
+            </div>
+            
+            <div class="parks-grid">
+                
+                <div class="park-card disney-card">
+                    <div class="park-title-area">
+                        <h3>Magic Kingdom</h3>
+                        <p class="park-desc">Onde os contos de fadas ganham vida e os sonhos se tornam realidade.</p>
+                    </div>
+                    <div class="park-details-list">
+                        <div class="side-info-card" style="margin-bottom: 20px; border-left: 4px solid var(--gold);">
+                            <h4><i class="fa-solid fa-clipboard-list"></i> Resumo do Dia</h4>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 10px;">
+                                <div>
+                                    <strong style="color: var(--gold); font-size: 12px; text-transform: uppercase;">🎒 O que levar</strong>
+                                    <ul style="list-style-type: none; padding: 0; margin-top: 5px;">
+                                        <li><i class="fa-solid fa-check" style="color: var(--accent-disney); font-size: 10px; margin-right: 5px;"></i>Cartão de crédito/débito</li>
+                                        <li><i class="fa-solid fa-check" style="color: var(--accent-disney); font-size: 10px; margin-right: 5px;"></i>Power Bank e Cabo</li>
+                                        <li><i class="fa-solid fa-check" style="color: var(--accent-disney); font-size: 10px; margin-right: 5px;"></i>Protetor solar e Capa de chuva</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <strong style="color: var(--gold); font-size: 12px; text-transform: uppercase;">ℹ️ O que devo saber</strong>
+                                    <ul style="list-style-type: none; padding: 0; margin-top: 5px;">
+                                        <li><i class="fa-solid fa-info-circle" style="color: var(--text-muted); font-size: 10px; margin-right: 5px;"></i>Horário: 09:00 às 22:00</li>
+                                        <li><i class="fa-solid fa-info-circle" style="color: var(--text-muted); font-size: 10px; margin-right: 5px;"></i>Sair de casa: 06:50-07:00</li>
+                                        <li><i class="fa-solid fa-info-circle" style="color: var(--text-muted); font-size: 10px; margin-right: 5px;"></i>Alguns brinquedos molham (levar troca)</li>
+                                        <li><i class="fa-solid fa-info-circle" style="color: var(--text-muted); font-size: 10px; margin-right: 5px;"></i>Pode levar lanches (sem vidro)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="park-detail-item">
+                            <strong><i class="fa-solid fa-clock"></i> Horários</strong>
+                            <p>Parque: 09:00 às 22:00. Chegar na Main Street às 08:00. Sair de casa: 06:50-07:00.</p>
+                        </div>
+                        <div class="park-detail-item">
+                            <strong><i class="fa-solid fa-train-subway"></i> Transporte</strong>
+                            <p>Ida: Monorail / Volta: Ferry Boat.</p>
+                        </div>
+                        <div class="park-detail-item">
+                            <strong><i class="fa-solid fa-backpack"></i> O que levar na mochila & Roupas</strong>
+                            <p>Cartão, Power Bank, Cabo, Protetor solar, Capa de chuva. Alguns brinquedos molham; ir com roupa de secagem rápida ou levar troca de roupa. É permitido levar lanches (sem vidro, sem aquecer).</p>
+                        </div>
+                        <div class="park-detail-item">
+                            <strong><i class="fa-solid fa-utensils"></i> Restaurantes e Lanches por Área</strong>
+                            <h4>Main Street U.S.A.</h4>
+                            <ul>
+                                <li>Main Street Bakery (Starbucks) - café da manhã, sanduíches e salgados</li>
+                                <li>Casey's Corner - cachorro-quente e batata frita</li>
+                                <li>Plaza Ice Cream Parlor - sorvetes e sundae do Mickey</li>
+                                <li>Main Street Confectionery - doces, pipoca e snacks</li>
+                            </ul>
+                            <h4>Adventureland</h4>
+                            <ul>
+                                <li>Aloha Isle - Dole Whip (sorvete de abacaxi)</li>
+                                <li>Pecos Bill - nachos e bowls mexicanos</li>
+                                <li>Cheeseburger Spring Rolls</li>
+                            </ul>
+                            <h4>Frontierland & Liberty Square</h4>
+                            <ul>
+                                <li>Golden Oak Outpost - Beignets da Tiana</li>
+                                <li>Columbia Harbour House - salmão grelhado, lobster roll (ambiente climatizado)</li>
+                            </ul>
+                            <h4>Fantasyland</h4>
+                            <ul>
+                                <li>Pinocchio Village Haus - pizza e flatbread</li>
+                                <li>Gaston's Tavern - cinnamon roll, croissant crème brûlée</li>
+                                <li>Friar's Nook - mac & cheese e hot dog</li>
+                                <li>Sleepy Hollow - waffle com Nutella, funnel cake e chicken waffle</li>
+                            </ul>
+                            <h4>Tomorrowland</h4>
+                            <ul>
+                                <li>Cosmic Ray's Starlight Cafe - hambúrguer e batata</li>
+                                <li>The Lunching Pad - hot dog e bolinho de chuva</li>
+                                <li>Auntie Gravity's - sorvetes e sundaes</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="park-card disney-card">
+                    <div class="park-title-area">
+                        <h3>Hollywood Studios</h3>
+                        <p class="park-desc">Aventura cinematográfica e o universo de Star Wars.</p>
+                    </div>
+                    <div class="park-details-list">
+                        <div class="side-info-card" style="margin-bottom: 20px; border-left: 4px solid var(--gold);">
+                            <h4><i class="fa-solid fa-clipboard-list"></i> Resumo do Dia</h4>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 10px;">
+                                <div>
+                                    <strong style="color: var(--gold); font-size: 12px; text-transform: uppercase;">🎒 O que levar</strong>
+                                    <ul style="list-style-type: none; padding: 0; margin-top: 5px;">
+                                        <li><i class="fa-solid fa-check" style="color: var(--accent-disney); font-size: 10px; margin-right: 5px;"></i>Cartão de crédito/débito</li>
+                                        <li><i class="fa-solid fa-check" style="color: var(--accent-disney); font-size: 10px; margin-right: 5px;"></i>Power Bank e Cabo</li>
+                                        <li><i class="fa-solid fa-check" style="color: var(--accent-disney); font-size: 10px; margin-right: 5px;"></i>Protetor solar e Capa de chuva</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <strong style="color: var(--gold); font-size: 12px; text-transform: uppercase;">ℹ️ O que devo saber</strong>
+                                    <ul style="list-style-type: none; padding: 0; margin-top: 5px;">
+                                        <li><i class="fa-solid fa-info-circle" style="color: var(--text-muted); font-size: 10px; margin-right: 5px;"></i>Horário: 09:00 às 22:00</li>
+                                        <li><i class="fa-solid fa-info-circle" style="color: var(--text-muted); font-size: 10px; margin-right: 5px;"></i>Sair de casa: 08:00</li>
+                                        <li><i class="fa-solid fa-info-circle" style="color: var(--text-muted); font-size: 10px; margin-right: 5px;"></i>Conferir app cedo para shows</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="park-detail-item">
+                            <strong><i class="fa-solid fa-clock"></i> Horários</strong>
+                            <p>Parque: 09:00 - 22:00. Sair de casa: 08:00. Conferir horários dos shows no aplicativo logo pela manhã.</p>
+                        </div>
+                        <div class="park-detail-item">
+                            <strong><i class="fa-solid fa-backpack"></i> O que levar na mochila</strong>
+                            <p>Cartão, Power Bank, Cabo, Protetor solar e Capa de chuva.</p>
+                        </div>
+                        <div class="park-detail-item">
+                            <strong><i class="fa-solid fa-utensils"></i> Restaurantes e Lanches por Área</strong>
+                            <h4>Sunset Boulevard</h4>
+                            <ul>
+                                <li>ABC Commissary - sanduíches e pratos variados</li>
+                                <li>Catalina Eddie's - pizza e macarrão</li>
+                                <li>Rosie's All-American Cafe - cheeseburger com batata</li>
+                                <li>KRNR The Rock Station - corn dog</li>
+                                <li>Hollywood Scoops - brownie com sorvete e waffle do Mickey (até 10h)</li>
+                            </ul>
+                            <h4>Hollywood Blvd & Toy Story Land</h4>
+                            <ul>
+                                <li>The Trolley Car Cafe (Starbucks)</li>
+                                <li>Woody's Lunch Box - grilled cheese + sopa de tomate, Totchos e kids meal</li>
+                            </ul>
+                            <h4>Star Wars: Galaxy's Edge</h4>
+                            <ul>
+                                <li>Ronto Roasters - wraps</li>
+                                <li>Docking Bay 7 - pratos temáticos</li>
+                                <li>Oga's Cantina - bar temático (necessita reserva)</li>
+                            </ul>
+                            <h4>Echo Lake & Commissary Lane</h4>
+                            <ul>
+                                <li>Epic Eats - funnel cake</li>
+                                <li>Backlot Express - cheeseburger e frango teriyaki</li>
+                                <li>Dockside Diner - hot dog</li>
+                                <li>50's Prime Time Café - restaurante temático anos 50</li>
+                                <li>Sci-Fi Dine-In Theater - hambúrguer em drive-in retrô</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="park-card disney-card">
+                    <div class="park-title-area">
+                        <h3>Animal Kingdom</h3>
+                        <p class="park-desc">Magia da natureza fundida com o mundo fascinante de Pandora.</p>
+                    </div>
+                    <div class="park-details-list">
+                        <div class="side-info-card" style="margin-bottom: 20px; border-left: 4px solid var(--gold);">
+                            <h4><i class="fa-solid fa-clipboard-list"></i> Resumo do Dia</h4>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 10px;">
+                                <div>
+                                    <strong style="color: var(--gold); font-size: 12px; text-transform: uppercase;">🎒 O que levar</strong>
+                                    <ul style="list-style-type: none; padding: 0; margin-top: 5px;">
+                                        <li><i class="fa-solid fa-check" style="color: var(--accent-disney); font-size: 10px; margin-right: 5px;"></i>Cartão de crédito/débito</li>
+                                        <li><i class="fa-solid fa-check" style="color: var(--accent-disney); font-size: 10px; margin-right: 5px;"></i>Power Bank e Cabo</li>
+                                        <li><i class="fa-solid fa-check" style="color: var(--accent-disney); font-size: 10px; margin-right: 5px;"></i>Protetor solar e Capa de chuva</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <strong style="color: var(--gold); font-size: 12px; text-transform: uppercase;">ℹ️ O que devo saber</strong>
+                                    <ul style="list-style-type: none; padding: 0; margin-top: 5px;">
+                                        <li><i class="fa-solid fa-info-circle" style="color: var(--text-muted); font-size: 10px; margin-right: 5px;"></i>Horário: 08:00 às 18:00</li>
+                                        <li><i class="fa-solid fa-info-circle" style="color: var(--text-muted); font-size: 10px; margin-right: 5px;"></i>Sair de casa: 07:10</li>
+                                        <li><i class="fa-solid fa-info-circle" style="color: var(--text-muted); font-size: 10px; margin-right: 5px;"></i>O parque fecha mais cedo</li>
+                                        <li><i class="fa-solid fa-info-circle" style="color: var(--text-muted); font-size: 10px; margin-right: 5px;"></i>Brinquedos molham (levar troca)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="park-detail-item">
+                            <strong><i class="fa-solid fa-clock"></i> Horários</strong>
+                            <p>Parque: 08:00 - 18:00. Sair de casa: 07:10.</p>
+                        </div>
+                        <div class="park-detail-item">
+                            <strong><i class="fa-solid fa-backpack"></i> O que levar na mochila & Roupas</strong>
+                            <p>Cartão, Power Bank, Cabo, Protetor, Capa de chuva. Alguns brinquedos molham; ir com roupa de secagem rápida.</p>
+                        </div>
+                        <div class="park-detail-item">
+                            <strong><i class="fa-solid fa-utensils"></i> Restaurantes e Lanches por Área</strong>
+                            <h4>Pandora - The World of Avatar</h4>
+                            <ul>
+                                <li>Satu'li Canteen - uma das melhores refeições da Disney (Nossa primeira opção) - Bowl personalizável e sobremesa temática</li>
+                                <li>Pongu Pongu - Night Blossom (limonada) e Lumpia de cream cheese e abacaxi</li>
+                            </ul>
+                            <h4>Africa</h4>
+                            <ul>
+                                <li>Kusafiri Coffee Shop - café da manhã</li>
+                                <li>Harambe Market - bowls e pratos variados</li>
+                                <li>Zuri's Sweets Shop - loja de doces</li>
+                                <li>Tamu Tamu Refreshments - sorvete</li>
+                            </ul>
+                            <h4>Asia</h4>
+                            <ul>
+                                <li>Yak & Yeti Local Food Cafes - arroz frito, yakisoba e bowls</li>
+                                <li>Yak & Yeti Restaurant - restaurante completo</li>
+                                <li>Anandapur Ice Cream Truck - sorvetes</li>
+                            </ul>
+                            <h4>Discovery Island</h4>
+                            <ul>
+                                <li>Flame Tree Barbecue - churrasco americano</li>
+                                <li>Pizzafari - pizza e massas</li>
+                                <li>Terra Treats - Cookie Dough Brownie Ice Cream Sandwich</li>
+                                <li>Isle of Java - salgados e café</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="park-card disney-card">
+                    <div class="park-title-area">
+                        <h3>EPCOT</h3>
+                        <p class="park-desc">Inovação humana e diversidade cultural global no World Showcase.</p>
+                    </div>
+                    <div class="park-details-list">
+                        <div class="side-info-card" style="margin-bottom: 20px; border-left: 4px solid var(--gold);">
+                            <h4><i class="fa-solid fa-clipboard-list"></i> Resumo do Dia</h4>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 10px;">
+                                <div>
+                                    <strong style="color: var(--gold); font-size: 12px; text-transform: uppercase;">🎒 O que levar</strong>
+                                    <ul style="list-style-type: none; padding: 0; margin-top: 5px;">
+                                        <li><i class="fa-solid fa-check" style="color: var(--accent-disney); font-size: 10px; margin-right: 5px;"></i>PASSAPORTE (Bebidas)</li>
+                                        <li><i class="fa-solid fa-check" style="color: var(--accent-disney); font-size: 10px; margin-right: 5px;"></i>Cartão, Power Bank, Cabo</li>
+                                        <li><i class="fa-solid fa-check" style="color: var(--accent-disney); font-size: 10px; margin-right: 5px;"></i>Protetor solar e Capa de chuva</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <strong style="color: var(--gold); font-size: 12px; text-transform: uppercase;">ℹ️ O que devo saber</strong>
+                                    <ul style="list-style-type: none; padding: 0; margin-top: 5px;">
+                                        <li><i class="fa-solid fa-info-circle" style="color: var(--text-muted); font-size: 10px; margin-right: 5px;"></i>Horário: 09:00 às 21:00</li>
+                                        <li><i class="fa-solid fa-info-circle" style="color: var(--text-muted); font-size: 10px; margin-right: 5px;"></i>Sair de casa: 08:00</li>
+                                        <li><i class="fa-solid fa-info-circle" style="color: var(--text-muted); font-size: 10px; margin-right: 5px;"></i>Dia de Drinking around the world</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="park-detail-item">
+                            <strong><i class="fa-solid fa-clock"></i> Horários</strong>
+                            <p>Parque: 09:00 - 21:00. Sair de casa: 08:00.</p>
+                        </div>
+                        <div class="park-detail-item">
+                            <strong><i class="fa-solid fa-backpack"></i> O que levar na mochila</strong>
+                            <p>PASSAPORTE!!! (Fundamental para o Drinking around the world), Cartão, Power Bank, Protetor, Capa.</p>
+                        </div>
+                        <div class="park-detail-item">
+                            <strong><i class="fa-solid fa-utensils"></i> Restaurantes e Lanches por Área</strong>
+                            <h4>World Celebration & Nature</h4>
+                            <ul>
+                                <li>Connections Café & Eatery / Club Cool</li>
+                                <li>Sunshine Seasons - uma das melhores opções custo-benefício do parque</li>
+                            </ul>
+                            <h4>World Showcase - Áreas de Comida</h4>
+                            <ul>
+                                <li>México: La Cantina de San Angel, Choza de Margarita</li>
+                                <li>Noruega: Kringla Bakeri Og Kafe - School Bread</li>
+                                <li>China: Lotus Blossom Café, Joy of Tea</li>
+                                <li>Alemanha: Sommerfest (bratwurst, pretzel), Karamell-Küche</li>
+                                <li>Itália: Gelateria Toscana, Pizza al Taglio (Melhor área para assistir aos fogos)</li>
+                                <li>EUA: Regal Eagle Smokehouse, Fife & Drum Tavern</li>
+                                <li>Japão: Katsura Grill, Kabuki Café, loja Mitsukoshi</li>
+                                <li>França: Les Halles, Crêperie, L'Artisan des Glaces (Croque Glacé)</li>
+                                <li>Reino Unido: Yorkshire County Fish Shop (fish & chips)</li>
+                                <li>Canadá: Popcorn in Canada (sabor maple)</li>
+                            </ul>
+                            <h4>Drinking Around The World</h4>
+                            <ul>
+                                <li>México: Margarita Avocado (La Cava del Tequila)</li>
+                                <li>Noruega: Viking Coffee (Kringla Bakeri)</li>
+                                <li>China: Tipsy Ducks in Love (Joy of Tea)</li>
+                                <li>Alemanha: Cerveja Alemã, Mozart Chocolate Liqueur</li>
+                                <li>Itália: Bellini, Italian Martini</li>
+                                <li>EUA: Beer Flight, Moonshine Sour</li>
+                                <li>Japão: Violet Sake (Garden House)</li>
+                                <li>Marrocos: Pomegranate Mimosa, Fig Mule</li>
+                                <li>França: Champagne, Orange Slush</li>
+                                <li>Reino Unido: Snake Bite (Rose & Crown Pub)</li>
+                                <li>Canadá: Ottawa Apple, Ice Wine Flight</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="universal" class="section">
+            <div class="section-header">
+                <span class="section-tag">Aventura Radical</span>
+                <h2 class="section-title">Complexo Universal Orlando Resort</h2>
+            </div>
+
+            <div class="parks-grid">
+                
+                <div class="park-card universal-card">
+                    <div class="park-title-area">
+                        <h3>Universal Studios Florida</h3>
+                        <p class="park-desc">Entre na tela do cinema e viva o entretenimento interativo.</p>
+                    </div>
+                    <div class="park-details-list">
+                        <div class="side-info-card" style="margin-bottom: 20px; border-left: 4px solid var(--gold);">
+                            <h4><i class="fa-solid fa-clipboard-list"></i> Resumo do Dia</h4>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 10px;">
+                                <div>
+                                    <strong style="color: var(--gold); font-size: 12px; text-transform: uppercase;">🎒 O que levar</strong>
+                                    <ul style="list-style-type: none; padding: 0; margin-top: 5px;">
+                                        <li><i class="fa-solid fa-check" style="color: var(--accent-universal); font-size: 10px; margin-right: 5px;"></i>Pochete/mochila menor (lockers)</li>
+                                        <li><i class="fa-solid fa-check" style="color: var(--accent-universal); font-size: 10px; margin-right: 5px;"></i>Copo da Universal</li>
+                                        <li><i class="fa-solid fa-check" style="color: var(--accent-universal); font-size: 10px; margin-right: 5px;"></i>Passaporte (caso role uma cerveja)</li>
+                                        <li><i class="fa-solid fa-check" style="color: var(--accent-universal); font-size: 10px; margin-right: 5px;"></i>Cartão, Power Bank, Capa</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <strong style="color: var(--gold); font-size: 12px; text-transform: uppercase;">ℹ️ O que devo saber</strong>
+                                    <ul style="list-style-type: none; padding: 0; margin-top: 5px;">
+                                        <li><i class="fa-solid fa-info-circle" style="color: var(--text-muted); font-size: 10px; margin-right: 5px;"></i>Horário: 08:00 às 18:00</li>
+                                        <li><i class="fa-solid fa-info-circle" style="color: var(--text-muted); font-size: 10px; margin-right: 5px;"></i>Sair de casa: 06:40</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="park-detail-item">
+                            <strong><i class="fa-solid fa-clock"></i> Horários</strong>
+                            <p>Parque: 08:00 - 18:00. Sair de casa: 06:40.</p>
+                        </div>
+                        <div class="park-detail-item">
+                            <strong><i class="fa-solid fa-backpack"></i> O que levar na mochila</strong>
+                            <p>Optar por pochete/mochila menor (lockers na maioria dos brinquedos), Copo da Universal, Cartão, Power Bank, Passaporte, Protetor, Capa.</p>
+                        </div>
+                        <div class="park-detail-item">
+                            <strong><i class="fa-solid fa-utensils"></i> Restaurantes e Lanches por Área</strong>
+                            <h4>Minion Land</h4>
+                            <ul>
+                                <li>Illumination's Minion Café - bowls, frango e salmão</li>
+                                <li>POP-A-NANA (pipoca sabor banana), Freeze Ray Pops, Bake My Day</li>
+                            </ul>
+                            <h4>New York & San Francisco</h4>
+                            <ul>
+                                <li>Louie's Italian Restaurant, Finnegan's Bar & Grill</li>
+                                <li>Richter's Burger Co., Chez Alcatraz, San Francisco Pastry Company</li>
+                            </ul>
+                            <h4>The Wizarding World of Harry Potter - Diagon Alley</h4>
+                            <ul>
+                                <li>Leaky Cauldron - pratos ingleses, peixe, carne</li>
+                                <li>Florean Fortescue's Ice-Cream Parlour</li>
+                                <li>Quiosques de Butterbeer e Baked Potato</li>
+                            </ul>
+                            <h4>Springfield & Hollywood</h4>
+                            <ul>
+                                <li>Krusty Burger, Bumblebee Man's Taco, Lard Lad Donuts, Moe's Tavern (cerveja Duff)</li>
+                                <li>Mel's Drive-In, Café La Bamba, TODAY Café</li>
+                            </ul>
+                            <h4>DreamWorks Land</h4>
+                            <ul>
+                                <li>Swamp Snacks - Pretzel do Shrek</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="park-card universal-card">
+                    <div class="park-title-area">
+                        <h3>Islands of Adventure</h3>
+                        <p class="park-desc">Jornadas épicas por ilhas de heróis e dinossauros hiper-realistas.</p>
+                    </div>
+                    <div class="park-details-list">
+                        <div class="side-info-card" style="margin-bottom: 20px; border-left: 4px solid var(--gold);">
+                            <h4><i class="fa-solid fa-clipboard-list"></i> Resumo do Dia</h4>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 10px;">
+                                <div>
+                                    <strong style="color: var(--gold); font-size: 12px; text-transform: uppercase;">🎒 O que levar</strong>
+                                    <ul style="list-style-type: none; padding: 0; margin-top: 5px;">
+                                        <li><i class="fa-solid fa-check" style="color: var(--accent-universal); font-size: 10px; margin-right: 5px;"></i>Pochete menor (lockers)</li>
+                                        <li><i class="fa-solid fa-check" style="color: var(--accent-universal); font-size: 10px; margin-right: 5px;"></i>Copo da Universal</li>
+                                        <li><i class="fa-solid fa-check" style="color: var(--accent-universal); font-size: 10px; margin-right: 5px;"></i>Passaporte (cerveja)</li>
+                                        <li><i class="fa-solid fa-check" style="color: var(--accent-universal); font-size: 10px; margin-right: 5px;"></i>Cartão, Power Bank, Capa</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <strong style="color: var(--gold); font-size: 12px; text-transform: uppercase;">ℹ️ O que devo saber</strong>
+                                    <ul style="list-style-type: none; padding: 0; margin-top: 5px;">
+                                        <li><i class="fa-solid fa-info-circle" style="color: var(--text-muted); font-size: 10px; margin-right: 5px;"></i>Horário: 09:00 às 21:00</li>
+                                        <li><i class="fa-solid fa-info-circle" style="color: var(--text-muted); font-size: 10px; margin-right: 5px;"></i>Sair de casa: 07:30</li>
+                                        <li><i class="fa-solid fa-info-circle" style="color: var(--text-muted); font-size: 10px; margin-right: 5px;"></i>Brinquedos molham MUITO</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="park-detail-item">
+                            <strong><i class="fa-solid fa-clock"></i> Horários</strong>
+                            <p>Parque: 09:00 - 21:00. Sair de casa: 07:30.</p>
+                        </div>
+                        <div class="park-detail-item">
+                            <strong><i class="fa-solid fa-backpack"></i> O que levar na mochila</strong>
+                            <p>Pochete menor por causa dos Lockers. Copo da Universal, Cartão, Power Bank, Passaporte, Capa. Brinquedos molham MUITO.</p>
+                        </div>
+                        <div class="park-detail-item">
+                            <strong><i class="fa-solid fa-utensils"></i> Restaurantes e Lanches por Área</strong>
+                            <h4>Marvel & Toon Lagoon</h4>
+                            <ul>
+                                <li>Captain America Diner, Cafe 4</li>
+                                <li>Comic Strip Cafe, Blondie's</li>
+                            </ul>
+                            <h4>Jurassic Park</h4>
+                            <ul>
+                                <li>Thunder Falls Terrace - bowls, costelas, frango assado</li>
+                                <li>The Burger Digs - hambúrgueres</li>
+                            </ul>
+                            <h4>Harry Potter - Hogsmeade</h4>
+                            <ul>
+                                <li>Three Broomsticks - frango assado, carne, peixe</li>
+                                <li>Doc Sugrue's Desert Kebab House</li>
+                                <li>Quiosques de Butterbeer</li>
+                            </ul>
+                            <h4>Seuss Landing</h4>
+                            <ul>
+                                <li>Green Eggs and Ham Cafe - tater tots recheados</li>
+                                <li>Circus McGurkus Cafe Stoo-pendous</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="park-card universal-card">
+                    <div class="park-title-area">
+                        <h3>Epic Universe</h3>
+                        <p class="park-desc">A nova e espetacular expansão imersiva da Universal.</p>
+                    </div>
+                    <div class="park-details-list">
+                        <div class="side-info-card" style="margin-bottom: 20px; border-left: 4px solid var(--gold);">
+                            <h4><i class="fa-solid fa-clipboard-list"></i> Resumo do Dia</h4>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 10px;">
+                                <div>
+                                    <strong style="color: var(--gold); font-size: 12px; text-transform: uppercase;">🎒 O que levar</strong>
+                                    <ul style="list-style-type: none; padding: 0; margin-top: 5px;">
+                                        <li><i class="fa-solid fa-check" style="color: var(--accent-universal); font-size: 10px; margin-right: 5px;"></i>Copo refill da Universal</li>
+                                        <li><i class="fa-solid fa-check" style="color: var(--accent-universal); font-size: 10px; margin-right: 5px;"></i>Cartão, Power Bank, Capa</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <strong style="color: var(--gold); font-size: 12px; text-transform: uppercase;">ℹ️ O que devo saber</strong>
+                                    <ul style="list-style-type: none; padding: 0; margin-top: 5px;">
+                                        <li><i class="fa-solid fa-info-circle" style="color: var(--text-muted); font-size: 10px; margin-right: 5px;"></i>Ficar até o fechamento para ver iluminado</li>
+                                        <li><i class="fa-solid fa-info-circle" style="color: var(--text-muted); font-size: 10px; margin-right: 5px;"></i>Stardust Racers pro final do dia</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="park-detail-item">
+                            <strong><i class="fa-solid fa-fire"></i> Dicas Essenciais</strong>
+                            <p>Levar copo refill da Universal. Ficar até o fechamento para ver o parque iluminado. Tentar deixar Stardust Racers para o final do dia (último carrinho de dia ou primeiro da noite).</p>
+                        </div>
+                        <div class="park-detail-item">
+                            <strong><i class="fa-solid fa-utensils"></i> Restaurantes e Lanches por Área</strong>
+                            <h4>Super Nintendo World</h4>
+                            <ul>
+                                <li>Toadstool Café – cheeseburger temático e pratos inspirados</li>
+                                <li>The Bubbly Barrel – sorvete servido no copo temático</li>
+                                <li>Yoshi's Snack Island – calzone e smoothie de manga</li>
+                            </ul>
+                            <h4>Ministry of Magic</h4>
+                            <ul>
+                                <li>Café L'air de la Sirène – sanduíches, quiches, saladas, crepes</li>
+                                <li>Le Gobelet Noir – ambiente temático, bife à milanesa (Coq au Vin)</li>
+                            </ul>
+                            <h4>Isle of Berk</h4>
+                            <ul>
+                                <li>Hooligan's Grog & Gruel – mac & cheese servido no pão de alho</li>
+                                <li>Spit Fyre Grill, Mead Hall</li>
+                            </ul>
+                            <h4>Dark Universe</h4>
+                            <ul>
+                                <li>Das Stakehaus – carnes e pratos mais completos</li>
+                                <li>The Burning Blade Tavern</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="park-card universal-card">
+                    <div class="park-title-area">
+                        <h3>Volcano Bay</h3>
+                        <p class="park-desc">Parque aquático espetacular e tecnológico aos pés do vulcão Krakatau.</p>
+                    </div>
+                    <div class="park-details-list">
+                        <div class="side-info-card" style="margin-bottom: 20px; border-left: 4px solid var(--gold);">
+                            <h4><i class="fa-solid fa-clipboard-list"></i> Resumo do Dia</h4>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 10px;">
+                                <div>
+                                    <strong style="color: var(--gold); font-size: 12px; text-transform: uppercase;">🎒 O que levar</strong>
+                                    <ul style="list-style-type: none; padding: 0; margin-top: 5px;">
+                                        <li><i class="fa-solid fa-check" style="color: var(--accent-universal); font-size: 10px; margin-right: 5px;"></i>Roupas de banho adequadas</li>
+                                        <li><i class="fa-solid fa-check" style="color: var(--accent-universal); font-size: 10px; margin-right: 5px;"></i>Chinelos (piso quente)</li>
+                                        <li><i class="fa-solid fa-check" style="color: var(--accent-universal); font-size: 10px; margin-right: 5px;"></i>Muito protetor solar</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <strong style="color: var(--gold); font-size: 12px; text-transform: uppercase;">ℹ️ O que devo saber</strong>
+                                    <ul style="list-style-type: none; padding: 0; margin-top: 5px;">
+                                        <li><i class="fa-solid fa-info-circle" style="color: var(--text-muted); font-size: 10px; margin-right: 5px;"></i>Horário: 09:00 às 19:00</li>
+                                        <li><i class="fa-solid fa-info-circle" style="color: var(--text-muted); font-size: 10px; margin-right: 5px;"></i>Show de fogos na Universal às 21h</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="park-detail-item">
+                            <strong><i class="fa-solid fa-clock"></i> Horários</strong>
+                            <p>Parque: 09:00 - 19:00.</p>
+                        </div>
+                        <div class="park-detail-item">
+                            <strong><i class="fa-solid fa-bolt"></i> Estratégia do Dia</strong>
+                            <p>Aproveite os toboáguas de manhã, o rio lento à tarde, e siga para o show de fogos na Universal Studios (às 21h) para encerrar o dia de forma perfeita.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="restaurantes" class="section">
+            <div class="section-header">
+                <span class="section-tag">Roteiro Gastronômico</span>
+                <h2 class="section-title">Restaurantes Principais</h2>
+            </div>
+
+            <div class="rest-grid">
+                <div class="rest-card">
+                    <div class="rest-info-top">
+                        <h4><i class="fa-solid fa-fish"></i> Ishiban Sushi</h4>
+                    </div>
+                </div>
+                <div class="rest-card">
+                    <div class="rest-info-top">
+                        <h4><i class="fa-solid fa-burger"></i> Five Guys</h4>
+                    </div>
+                    <div class="rest-meta">
+                        <span>Vineland: Fecha às 00:00</span>
+                    </div>
+                </div>
+                <div class="rest-card">
+                    <div class="rest-info-top">
+                        <h4><i class="fa-solid fa-burger"></i> Shake Shack</h4>
+                    </div>
+                </div>
+                <div class="rest-card">
+                    <div class="rest-info-top">
+                        <h4><i class="fa-solid fa-drumstick-bite"></i> Chick-fil-A</h4>
+                    </div>
+                </div>
+                <div class="rest-card">
+                    <div class="rest-info-top">
+                        <h4><i class="fa-solid fa-leaf"></i> Rainforest Cafe</h4>
+                    </div>
+                </div>
+                <div class="rest-card">
+                    <div class="rest-info-top">
+                        <h4><i class="fa-solid fa-shrimp"></i> Joe's Crab Shack</h4>
+                    </div>
+                </div>
+                <div class="rest-card">
+                    <div class="rest-info-top">
+                        <h4><i class="fa-solid fa-bowl-rice"></i> Panda Express</h4>
+                    </div>
+                </div>
+                <div class="rest-card">
+                    <div class="rest-info-top">
+                        <h4><i class="fa-solid fa-beer-mug-empty"></i> Miller's Ale House</h4>
+                    </div>
+                </div>
+                <div class="rest-card">
+                    <div class="rest-info-top">
+                        <h4><i class="fa-solid fa-burger"></i> McDonald's</h4>
+                    </div>
+                </div>
+                <div class="rest-card">
+                    <div class="rest-info-top">
+                        <h4><i class="fa-solid fa-taco"></i> Taco Bell</h4>
+                    </div>
+                </div>
+                <div class="rest-card">
+                    <div class="rest-info-top">
+                        <h4><i class="fa-solid fa-plate-wheat"></i> Olive Garden</h4>
+                    </div>
+                </div>
+                <div class="rest-card">
+                    <div class="rest-info-top">
+                        <h4><i class="fa-solid fa-pepper-hot"></i> Chipotle</h4>
+                    </div>
+                </div>
+                <div class="rest-card">
+                    <div class="rest-info-top">
+                        <h4><i class="fa-solid fa-utensils"></i> Earl of Sandwich</h4>
+                    </div>
+                    <div class="rest-meta">
+                        <span>Disney Springs</span>
+                    </div>
+                </div>
+            </div>
+            
+            <a href="#mapa" class="btn-location" style="margin-top: 30px;"><i class="fa-solid fa-map"></i> Encontrar no Mapa</a>
+        </section>
+
+        <section id="compras" class="section">
+            <div class="section-header">
+                <span class="section-tag">Guia de Outlets & Lojas</span>
+                <h2 class="section-title">Principais Destinos de Compras</h2>
+            </div>
+
+            <div class="shop-grid">
+                <div class="shop-card">
+                    <div class="shop-header">
+                        <i class="fa-solid fa-tags"></i>
+                        <h3>Orlando International Premium Outlets</h3>
+                    </div>
+                    <ul class="shop-tips-list">
+                        <li><i class="fa-solid fa-location-dot"></i> 9901 International Dr, Orlando, FL 32819</li>
+                    </ul>
+                </div>
+
+                <div class="shop-card">
+                    <div class="shop-header">
+                        <i class="fa-solid fa-tags"></i>
+                        <h3>Orlando Vineland Premium Outlets</h3>
+                    </div>
+                    <ul class="shop-tips-list">
+                        <li><i class="fa-solid fa-location-dot"></i> 8200 Vineland Ave, Orlando, FL 32821</li>
+                    </ul>
+                </div>
+
+                <div class="shop-card">
+                    <div class="shop-header">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <h3>Lake Buena Vista Factory Stores</h3>
+                    </div>
+                    <ul class="shop-tips-list">
+                        <li><i class="fa-solid fa-location-dot"></i> 15657 S Apopka Vineland Rd, Orlando, FL 32821</li>
+                    </ul>
+                </div>
+
+                <div class="shop-card">
+                    <div class="shop-header">
+                        <i class="fa-solid fa-shirt"></i>
+                        <h3>Regency Village Shopping Center</h3>
+                    </div>
+                    <ul class="shop-tips-list">
+                        <li><i class="fa-solid fa-location-dot"></i> 11513 Regency Village Dr, Orlando, FL 32821 (Ross, Burlington, TJ Maxx e Marshalls)</li>
+                    </ul>
+                </div>
+
+                <div class="shop-card">
+                    <div class="shop-header">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        <h3>The Loop Kissimmee</h3>
+                    </div>
+                    <ul class="shop-tips-list">
+                        <li><i class="fa-solid fa-location-dot"></i> 3208 N John Young Pkwy, Kissimmee, FL 34741</li>
+                    </ul>
+                </div>
+                
+                <div class="shop-card">
+                    <div class="shop-header">
+                        <i class="fa-solid fa-store"></i>
+                        <h3>The Florida Mall</h3>
+                    </div>
+                    <ul class="shop-tips-list">
+                        <li><i class="fa-solid fa-location-dot"></i> 8001 S Orange Blossom Trl, Orlando, FL 32809</li>
+                    </ul>
+                </div>
+                
+                <div class="shop-card">
+                    <div class="shop-header">
+                        <i class="fa-solid fa-shop"></i>
+                        <h3>Winter Garden Village</h3>
+                    </div>
+                    <ul class="shop-tips-list">
+                        <li><i class="fa-solid fa-location-dot"></i> 3251 Daniels Rd, Winter Garden, FL 34787</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <a href="#mapa" class="btn-location" style="margin-top: 20px;"><i class="fa-solid fa-map"></i> Ver Lojas no Mapa</a>
+        </section>
+
+        <section id="dicas" class="section">
+            <div class="section-header">
+                <span class="section-tag">Manual de Sobrevivência</span>
+                <h2 class="section-title">Dicas Gerais de Viagem</h2>
+            </div>
+
+            <div class="tips-accordion">
+                <div class="tip-box">
+                    <h3><i class="fa-solid fa-mobile-screen-button"></i> Aplicativos Obrigatórios</h3>
+                    <p>Baixar aplicativos: My Disney experience e cadastrar seu cartão para pedir comidas online e poupar fila longa, Universal Orlando Resort, Waze, Uber e o app Simon Outlets para rastrear descontos relâmpago exclusivos.</p>
+                </div>
+                <div class="tip-box">
+                    <h3><i class="fa-solid fa-bolt"></i> Lightning Lane System</h3>
+                    <p>O antigo sistema de fura-filas evoluiu. Entenda as regras do Lightning Lane Multi Pass e Single Pass. Agende suas janelas prioritárias às 7h da manhã em ponto do dia do parque para cortar horas estressantes de espera em pé nas filas.</p>
+                </div>
+                <div class="tip-box">
+                    <h3><i class="fa-solid fa-car"></i> Aluguel de Carro & Tráfego</h3>
+                    <p>Alugar carro em Orlando é essencial para manter a flexibilidade de locomoção. Adquira a opção com SunPass embutido para passar direto pelos pedágios eletrônicos automáticos espalhados pelas rodovias expressas.</p>
+                </div>
+                <div class="tip-box">
+                    <h3><i class="fa-solid fa-calendar-check"></i> Reserva de Restaurantes</h3>
+                    <p>Restaurantes concorridos e jantares com personagens da Disney abrem vagas rigorosamente com 60 dias de antecedência no aplicativo My Disney Experience. Configure alarmes no celular para garantir os melhores locais.</p>
+                </div>
+                <div class="tip-box">
+                    <h3><i class="fa-solid fa-cloud-sun-rain"></i> Roupas & Clima de Agosto</h3>
+                    <p>Agosto e setembro marcam o verão quente da Flórida, intercalado com pancadas de chuva rápidas à tarde. Use calçados esportivos ultra confortáveis já amaciados, roupas extremamente leves e carregue capas de chuva de nylon compactas.</p>
+                </div>
+                <div class="tip-box">
+                    <h3><i class="fa-solid fa-suitcase-rolling"></i> Organização Inteligente de Malas</h3>
+                    <p>Leve malas relativamente vazias na ida ao destino. Compre organizadores em cubos transparentes para categorizar as compras e use tags coloridas de identificação ou dispositivos eletrônicos Apple AirTags para rastreamento.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <button class="back-to-top" id="backToTop"><i class="fa-solid fa-arrow-up"></i></button>
+
+    <script>
+        // DOM Elements
+        const menuToggle = document.getElementById('menuToggle');
+        const sidebar = document.getElementById('sidebar');
+        const backToTopBtn = document.getElementById('backToTop');
+        const dayHeaders = document.querySelectorAll('.day-header');
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const dayCards = document.querySelectorAll('.day-card');
+        const sidebarItems = document.querySelectorAll('.sidebar-item');
+
+        // Toggle Sidebar Navigation on Mobile Screens
+        menuToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+            const icon = menuToggle.querySelector('i');
+            if(sidebar.classList.contains('open')) {
+                icon.classList.replace('fa-bars', 'fa-times');
+            } else {
+                icon.classList.replace('fa-times', 'fa-bars');
+            }
+        });
+
+        // Close sidebar when clicking a menu item on mobile
+        sidebarItems.forEach(item => {
+            item.querySelector('a').addEventListener('click', () => {
+                if (window.innerWidth <= 992) {
+                    sidebar.classList.remove('open');
+                    menuToggle.querySelector('i').classList.replace('fa-times', 'fa-bars');
+                }
+            });
+        });
+
+        // Expandable / Collapsible Day Cards (Accordion effect)
+        dayHeaders.forEach(header => {
+            header.addEventListener('click', () => {
+                const card = header.parentElement;
+                
+                // Toggle active current card
+                card.classList.toggle('expanded');
+                
+                // Highlight visual block
+                if(card.classList.contains('expanded')) {
+                    card.style.borderColor = 'rgba(245, 158, 11, 0.4)';
+                } else {
+                    card.style.borderColor = 'var(--border-color)';
+                }
+            });
+        });
+
+        // Interactive Filter Engine for Itinerary Days
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons within the same container
+                const container = btn.parentElement;
+                container.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const targetFilter = btn.getAttribute('data-filter');
+
+                if(targetFilter) {
+                    dayCards.forEach(card => {
+                        const category = card.getAttribute('data-category');
+                        if(targetFilter === 'all' || category === targetFilter) {
+                            card.style.display = 'block';
+                            // Add fade animation
+                            card.style.opacity = '0';
+                            setTimeout(() => card.style.opacity = '1', 50);
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                }
+            });
+        });
+
+        // Manage Visibility of Back-to-Top Floating Button & Navigation Spy
+        window.addEventListener('scroll', () => {
+            // Show button
+            if (window.scrollY > 400) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+
+            // Simple Scrollspy active section management
+            const sections = document.querySelectorAll('section');
+            let scrollPosition = window.scrollY + 100;
+
+            sections.forEach(section => {
+                if (scrollPosition >= section.offsetTop && scrollPosition < section.offsetTop + section.offsetHeight) {
+                    const id = section.getAttribute('id');
+                    sidebarItems.forEach(item => {
+                        item.classList.remove('active');
+                        if (item.getAttribute('data-section') === id) {
+                            item.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+
+        // Smooth Scroll to Top Execution
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
