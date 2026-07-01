@@ -29,167 +29,939 @@
             --transition-smooth: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg-main); color: var(--text-main); overflow-x: hidden; display: flex; }
-        h1, h2, h3, .brand-text { font-family: 'Montserrat', sans-serif; font-weight: 700; }
-        ::-webkit-scrollbar { width: 8px; height: 8px; }
-        ::-webkit-scrollbar-track { background: var(--bg-main); }
-        ::-webkit-scrollbar-thumb { background: var(--bg-card); border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            overflow-x: hidden;
+            display: flex;
+        }
+
+        h1, h2, h3, .brand-text {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-main);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--bg-card);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--gold);
+        }
 
         /* --- SIDEBAR NAV --- */
-        .sidebar { width: var(--sidebar-width); height: 100vh; background-color: #070814; border-right: 1px solid var(--border-color); position: fixed; top: 0; left: 0; display: flex; flex-direction: column; z-index: 100; transition: var(--transition-smooth); }
-        .sidebar-header { padding: 30px 24px; display: flex; align-items: center; gap: 12px; border-bottom: 1px solid var(--border-color); }
-        .sidebar-header i, .sidebar-header svg { font-size: 24px; background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .brand-text { font-size: 18px; letter-spacing: 1px; background: linear-gradient(135deg, #fff, var(--text-muted)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .sidebar-menu { list-style: none; padding: 24px 16px; display: flex; flex-direction: column; gap: 8px; flex-grow: 1; overflow-y: auto; }
-        .sidebar-item a { display: flex; align-items: center; gap: 14px; padding: 12px 16px; color: var(--text-muted); text-decoration: none; border-radius: 12px; font-weight: 500; font-size: 15px; transition: var(--transition-smooth); }
-        .sidebar-item a:hover, .sidebar-item.active a { color: #fff; background: var(--primary-gradient); box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2); }
-        .sidebar-item a i, .sidebar-item a svg { font-size: 18px; width: 24px; text-align: center; }
+        .sidebar {
+            width: var(--sidebar-width);
+            height: 100vh;
+            background-color: #070814;
+            border-right: 1px solid var(--border-color);
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            z-index: 100;
+            transition: var(--transition-smooth);
+        }
+
+        .sidebar-header {
+            padding: 30px 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .sidebar-header i, .sidebar-header svg {
+            font-size: 24px;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .brand-text {
+            font-size: 18px;
+            letter-spacing: 1px;
+            background: linear-gradient(135deg, #fff, var(--text-muted));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .sidebar-menu {
+            list-style: none;
+            padding: 24px 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            flex-grow: 1;
+            overflow-y: auto;
+        }
+
+        .sidebar-item a {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 12px 16px;
+            color: var(--text-muted);
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 500;
+            font-size: 15px;
+            transition: var(--transition-smooth);
+        }
+
+        .sidebar-item a:hover, .sidebar-item.active a {
+            color: #fff;
+            background: var(--primary-gradient);
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2);
+        }
+
+        .sidebar-item a i, .sidebar-item a svg {
+            font-size: 18px;
+            width: 24px;
+            text-align: center;
+        }
 
         /* Mobile Header */
-        .mobile-header { display: none; width: 100%; height: 60px; background-color: #070814; border-bottom: 1px solid var(--border-color); position: fixed; top: 0; left: 0; z-index: 101; padding: 0 20px; align-items: center; justify-content: space-between; }
-        .menu-toggle { background: none; border: none; color: #fff; font-size: 22px; cursor: pointer; }
+        .mobile-header {
+            display: none;
+            width: 100%;
+            height: 60px;
+            background-color: #070814;
+            border-bottom: 1px solid var(--border-color);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 101;
+            padding: 0 20px;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .menu-toggle {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 22px;
+            cursor: pointer;
+        }
 
         /* --- MAIN CONTENT CONTAINER --- */
-        .main-content { margin-left: var(--sidebar-width); width: calc(100% - var(--sidebar-width)); min-height: 100vh; transition: var(--transition-smooth); }
+        .main-content {
+            margin-left: var(--sidebar-width);
+            width: calc(100% - var(--sidebar-width));
+            min-height: 100vh;
+            transition: var(--transition-smooth);
+        }
 
         /* --- HERO SECTION --- */
-        .hero { min-height: 85vh; padding: 60px 40px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; border-bottom: 1px solid var(--border-color); position: relative; }
-        .hero-badge { background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); color: var(--gold); padding: 8px 16px; border-radius: 30px; font-size: 14px; font-weight: 600; margin-bottom: 24px; letter-spacing: 1px; text-transform: uppercase; animation: pulse 2s infinite; }
-        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4); } 70% { box-shadow: 0 0 0 10px rgba(245, 158, 11, 0); } 100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); } }
-        .hero h1 { font-size: 56px; font-weight: 800; line-height: 1.1; margin-bottom: 20px; text-shadow: 2px 2px 8px rgba(0,0,0,0.7); letter-spacing: -1px; }
-        .hero p { font-size: 20px; color: #f8fafc; max-width: 700px; margin-bottom: 40px; line-height: 1.6; text-shadow: 1px 1px 4px rgba(0,0,0,0.8); }
-        .hero-btn { background-color: var(--bg-card); border: 1px solid var(--border-color); padding: 20px; border-radius: 16px; color: #fff; text-decoration: none; display: flex; flex-direction: column; align-items: center; gap: 12px; font-weight: 600; font-size: 15px; transition: var(--transition-smooth); cursor: pointer; }
-        .hero-btn i, .hero-btn svg { font-size: 24px; transition: var(--transition-smooth); }
+        .hero {
+            min-height: 85vh;
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: radial-gradient(circle at top right, rgba(124, 58, 237, 0.15), transparent),
+                        radial-gradient(circle at bottom left, rgba(37, 99, 235, 0.15), transparent);
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            color: var(--gold);
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(245, 158, 11, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #ffffff 30%, #c084fc 70%, #6366f1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -1px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #f8fafc;
+            max-width: 700px;
+            margin-bottom: 40px;
+            line-height: 1.6;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
+        }
+
+        .hero-btn {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 16px;
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            font-weight: 600;
+            font-size: 15px;
+            transition: var(--transition-smooth);
+            cursor: pointer;
+        }
+
+        .hero-btn i, .hero-btn svg {
+            font-size: 24px;
+            transition: var(--transition-smooth);
+        }
+
         .hero-btn.btn-days i { color: #3b82f6; }
         .hero-btn.btn-disney i, .hero-btn.btn-disney svg { color: #a855f7; }
         .hero-btn.btn-universal i { color: #f97316; }
         .hero-btn.btn-rest i { color: #ec4899; }
         .hero-btn.btn-shop i { color: #10b981; }
-        .hero-btn:hover { transform: translateY(-5px); background-color: var(--bg-card-hover); border-color: rgba(255, 255, 255, 0.15); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); }
-        .hero-btn:hover i, .hero-btn:hover svg { transform: scale(1.15); }
+
+        .hero-btn:hover {
+            transform: translateY(-5px);
+            background-color: var(--bg-card-hover);
+            border-color: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-btn:hover i, .hero-btn:hover svg {
+            transform: scale(1.15);
+        }
 
         /* --- GENERIC SECTION STYLING --- */
-        .section { padding: 80px 40px; border-bottom: 1px solid var(--border-color); }
-        .section-header { margin-bottom: 40px; position: relative; }
-        .section-tag { color: var(--gold); text-transform: uppercase; font-size: 13px; font-weight: 700; letter-spacing: 2px; margin-bottom: 8px; display: block; }
-        .section-title { font-size: 32px; font-weight: 700; position: relative; display: inline-block; padding-left: 15px; }
-        .section-title::before { content: ''; position: absolute; left: 0; top: 15%; height: 70%; width: 5px; background: var(--magical-gradient); border-radius: 4px; }
+        .section {
+            padding: 80px 40px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-header {
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-tag {
+            color: var(--gold);
+            text-transform: uppercase;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .section-title {
+            font-size: 32px;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+            padding-left: 15px;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 15%;
+            height: 70%;
+            width: 5px;
+            background: var(--magical-gradient);
+            border-radius: 4px;
+        }
 
         /* --- SECTION: MAPA INTERATIVO --- */
-        .map-wrapper { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px; padding: 24px; margin-top: 20px; }
-        .map-iframe-container { width: 100%; height: 500px; border-radius: 12px; overflow: hidden; margin-bottom: 24px; border: 1px solid var(--border-color); }
-        .map-legend { display: flex; flex-wrap: wrap; gap: 16px; font-size: 14px; color: var(--text-muted); margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid var(--border-color); }
-        .legend-item { display: flex; align-items: center; gap: 8px; font-weight: 500; }
-        .pin-azul { color: #3b82f6; } .pin-vermelho { color: #ef4444; } .pin-verde { color: #10b981; } .pin-roxo { color: #a855f7; } .pin-amarelo { color: #eab308; } .pin-cinza { color: #94a3b8; }
-        .btn-location { background: var(--primary-gradient); border: none; color: #fff; padding: 12px 24px; border-radius: 30px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; transition: var(--transition-smooth); }
-        .btn-location:hover { box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4); transform: translateY(-2px); }
+        .map-wrapper {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 24px;
+            margin-top: 20px;
+        }
+
+        .map-iframe-container {
+            width: 100%;
+            height: 500px;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 24px;
+            border: 1px solid var(--border-color);
+        }
+
+        .map-legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+        }
+
+        .pin-azul { color: #3b82f6; }
+        .pin-vermelho { color: #ef4444; }
+        .pin-verde { color: #10b981; }
+        .pin-roxo { color: #a855f7; }
+        .pin-amarelo { color: #eab308; }
+        .pin-cinza { color: #94a3b8; }
+
+        .btn-location {
+            background: var(--primary-gradient);
+            border: none;
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition-smooth);
+        }
+
+        .btn-location:hover {
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+            transform: translateY(-2px);
+        }
 
         /* --- SECTION: ROTEIRO POR DIA --- */
-        .filter-container { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 30px; }
-        .filter-btn { background-color: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-muted); padding: 10px 20px; border-radius: 30px; cursor: pointer; font-weight: 600; font-size: 14px; transition: var(--transition-smooth); }
-        .filter-btn:hover, .filter-btn.active { color: #fff; background: var(--magical-gradient); border-color: transparent; box-shadow: 0 4px 15px rgba(124, 58, 237, 0.25); }
-        .days-grid { display: flex; flex-direction: column; gap: 16px; }
-        .day-card { background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px; overflow: hidden; transition: var(--transition-smooth); }
-        .day-card:hover { border-color: rgba(255, 255, 255, 0.15); box-shadow: 0 8px 25px rgba(0,0,0,0.2); }
-        .day-header { padding: 20px 24px; display: grid; grid-template-columns: auto 1fr auto auto; align-items: center; gap: 20px; cursor: pointer; user-select: none; }
-        .day-number { background: var(--primary-gradient); padding: 10px 16px; border-radius: 12px; font-weight: 700; text-align: center; min-width: 85px; }
-        .day-number span { display: block; font-size: 11px; color: var(--text-muted); text-transform: uppercase; font-weight: 500; margin-bottom: 2px; }
-        .day-title-block h3 { font-size: 18px; margin-bottom: 4px; }
-        .day-title-block p { color: var(--text-muted); font-size: 14px; }
-        .day-badge { padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 600; text-transform: uppercase; }
+        .filter-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .filter-btn {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            padding: 10px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            transition: var(--transition-smooth);
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            color: #fff;
+            background: var(--magical-gradient);
+            border-color: transparent;
+            box-shadow: 0 4px 15px rgba(124, 58, 237, 0.25);
+        }
+
+        .days-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .day-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: var(--transition-smooth);
+        }
+
+        .day-card:hover {
+            border-color: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .day-header {
+            padding: 20px 24px;
+            display: grid;
+            grid-template-columns: auto 1fr auto auto;
+            align-items: center;
+            gap: 20px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .day-number {
+            background: var(--primary-gradient);
+            padding: 10px 16px;
+            border-radius: 12px;
+            font-weight: 700;
+            text-align: center;
+            min-width: 85px;
+        }
+
+        .day-number span {
+            display: block;
+            font-size: 11px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-weight: 500;
+            margin-bottom: 2px;
+        }
+
+        .day-title-block h3 {
+            font-size: 18px;
+            margin-bottom: 4px;
+        }
+
+        .day-title-block p {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        .day-badge {
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
         .badge-disney { background: rgba(0, 99, 229, 0.15); color: #60a5fa; border: 1px solid rgba(0, 99, 229, 0.3); }
         .badge-universal { background: rgba(249, 115, 22, 0.15); color: #fdba74; border: 1px solid rgba(249, 115, 22, 0.3); }
         .badge-compras { background: rgba(16, 185, 129, 0.15); color: #6ee7b7; border: 1px solid rgba(16, 185, 129, 0.3); }
         .badge-descanso { background: rgba(139, 92, 246, 0.15); color: #c084fc; border: 1px solid rgba(139, 92, 246, 0.3); }
-        .day-toggle-icon { font-size: 18px; color: var(--text-muted); transition: transform 0.3s ease; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: rgba(255,255,255,0.03); }
-        .day-card.expanded .day-toggle-icon { transform: rotate(180deg); color: var(--gold); background: rgba(245, 158, 11, 0.1); }
-        .day-content { max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0, 1, 0, 1); background-color: rgba(0, 0, 0, 0.15); border-top: 1px solid transparent; }
-        .day-card.expanded .day-content { max-height: 3000px; transition: max-height 0.5s cubic-bezier(1, 0, 1, 0); border-top: 1px solid var(--border-color); }
-        .day-details-inner { padding: 24px; display: grid; grid-template-columns: 2fr 1fr; gap: 24px; }
-        .timeline-blocks { display: flex; flex-direction: column; gap: 16px; }
-        .time-block { display: flex; gap: 16px; position: relative; }
-        .time-block::before { content: ''; position: absolute; left: 15px; top: 34px; bottom: -24px; width: 2px; background: var(--border-color); }
+        .badge-outros { background: rgba(6, 182, 212, 0.15); color: #22d3ee; border: 1px solid rgba(6, 182, 212, 0.3); }
+
+        .day-toggle-icon {
+            font-size: 18px;
+            color: var(--text-muted);
+            transition: transform 0.3s ease;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.03);
+        }
+
+        .day-card.expanded .day-toggle-icon {
+            transform: rotate(180deg);
+            color: var(--gold);
+            background: rgba(245, 158, 11, 0.1);
+        }
+
+        /* Card Content Expansion */
+        .day-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+            background-color: rgba(0, 0, 0, 0.15);
+            border-top: 1px solid transparent;
+        }
+
+        .day-card.expanded .day-content {
+            max-height: 3000px;
+            transition: max-height 0.5s cubic-bezier(1, 0, 1, 0);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .day-details-inner {
+            padding: 24px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 24px;
+        }
+
+        .timeline-blocks {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .time-block {
+            display: flex;
+            gap: 16px;
+            position: relative;
+        }
+
+        .time-block::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 34px;
+            bottom: -24px;
+            width: 2px;
+            background: var(--border-color);
+        }
+
         .time-block:last-child::before { display: none; }
-        .time-icon { width: 32px; height: 32px; border-radius: 50%; background: var(--bg-card-hover); border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--gold); flex-shrink: 0; z-index: 2; }
-        .time-info { background: rgba(255, 255, 255, 0.02); padding: 14px 18px; border-radius: 12px; border: 1px solid var(--border-color); width: 100%; }
-        .time-info strong { display: block; font-size: 12px; text-transform: uppercase; color: var(--gold); letter-spacing: 0.5px; margin-bottom: 4px; }
-        .time-info p { font-size: 14.5px; line-height: 1.5; }
-        .day-sidebar-info { display: flex; flex-direction: column; gap: 16px; }
-        .side-info-card { background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-color); padding: 16px; border-radius: 12px; }
-        .side-info-card h4 { font-size: 13px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+
+        .time-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--bg-card-hover);
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            color: var(--gold);
+            flex-shrink: 0;
+            z-index: 2;
+        }
+
+        .time-info {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 14px 18px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            width: 100%;
+        }
+
+        .time-info strong {
+            display: block;
+            font-size: 12px;
+            text-transform: uppercase;
+            color: var(--gold);
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .time-info p {
+            font-size: 14.5px;
+            line-height: 1.5;
+        }
+
+        .day-sidebar-info {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .side-info-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-color);
+            padding: 16px;
+            border-radius: 12px;
+        }
+
+        .side-info-card h4 {
+            font-size: 13px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
         .side-info-card h4 i { color: var(--gold); }
         .side-info-card p { font-size: 14px; line-height: 1.4; }
-        .btn-proximity { display: inline-flex; align-items: center; gap: 8px; background: rgba(37, 99, 235, 0.15); color: #60a5fa; border: 1px solid rgba(37, 99, 235, 0.3); padding: 6px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; margin-top: 10px; cursor: pointer; text-decoration: none; transition: var(--transition-smooth); }
-        .btn-proximity:hover { background: rgba(37, 99, 235, 0.3); color: #fff; }
-        .btn-album { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: rgba(139, 92, 246, 0.15); color: #c084fc; border: 1px solid rgba(139, 92, 246, 0.3); padding: 10px 16px; border-radius: 8px; font-size: 13px; font-weight: 600; margin-top: 12px; cursor: pointer; text-decoration: none; transition: var(--transition-smooth); width: 100%; }
-        .btn-album:hover { background: rgba(139, 92, 246, 0.3); color: #fff; }
+
+        .btn-proximity {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(37, 99, 235, 0.15);
+            color: #60a5fa;
+            border: 1px solid rgba(37, 99, 235, 0.3);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-top: 10px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+
+        .btn-proximity:hover {
+            background: rgba(37, 99, 235, 0.3);
+            color: #fff;
+        }
+
+        /* NEW BTN-ALBUM STYLE */
+        .btn-album {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: rgba(139, 92, 246, 0.15);
+            color: #c084fc;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-top: 12px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+            width: 100%;
+        }
+
+        .btn-album:hover {
+            background: rgba(139, 92, 246, 0.3);
+            color: #fff;
+        }
 
         /* --- PARKS GRID LAYOUT --- */
-        .parks-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
-        .park-card { background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: 20px; padding: 30px; display: flex; flex-direction: column; gap: 20px; transition: var(--transition-smooth); position: relative; overflow: hidden; }
-        .park-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; }
+        .parks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .park-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .park-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 4px;
+        }
+
         .disney-card::before { background: var(--accent-disney); }
         .universal-card::before { background: var(--accent-universal); }
         .outros-card::before { background: #22d3ee; }
-        .park-card:hover { transform: translateY(-5px); border-color: rgba(255,255,255,0.15); box-shadow: 0 12px 30px rgba(0,0,0,0.3); }
-        .park-title-area h3 { font-size: 24px; margin-bottom: 6px; }
-        .park-desc { font-size: 14px; color: var(--text-muted); line-height: 1.5; }
-        .park-details-list { display: flex; flex-direction: column; gap: 12px; margin-top: 10px; }
-        .park-detail-item strong { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--gold); text-transform: uppercase; margin-bottom: 4px; }
-        .park-detail-item h4 { font-size: 15px; color: #fff; margin: 10px 0 5px 0; padding-left: 20px; }
-        .park-detail-item p, .park-detail-item ul { font-size: 14px; color: var(--text-main); padding-left: 20px; line-height: 1.4; }
-        .park-detail-item ul { list-style-type: none; }
-        .park-detail-item ul li { position: relative; padding-left: 15px; margin-bottom: 4px; }
-        .park-detail-item ul li::before { content: "•"; color: var(--gold); position: absolute; left: 0; }
+
+        .park-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255,255,255,0.15);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+        }
+
+        .park-title-area h3 {
+            font-size: 24px;
+            margin-bottom: 6px;
+        }
+
+        .park-desc {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .park-details-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .park-detail-item strong {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            color: var(--gold);
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+        
+        .park-detail-item h4 {
+            font-size: 15px;
+            color: #fff;
+            margin: 10px 0 5px 0;
+            padding-left: 20px;
+        }
+
+        .park-detail-item p, .park-detail-item ul {
+            font-size: 14px;
+            color: var(--text-main);
+            padding-left: 20px;
+            line-height: 1.4;
+        }
+        
+        .park-detail-item ul {
+            list-style-type: none;
+        }
+        
+        .park-detail-item ul li {
+            position: relative;
+            padding-left: 15px;
+            margin-bottom: 4px;
+        }
+        
+        .park-detail-item ul li::before {
+            content: "•";
+            color: var(--gold);
+            position: absolute;
+            left: 0;
+        }
 
         /* --- RESTAURANTS LIST --- */
-        .rest-tabs { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 30px; border-bottom: 1px solid var(--border-color); padding-bottom: 15px; }
-        .rest-tab-btn { background: none; border: none; color: var(--text-muted); padding: 10px 16px; font-size: 15px; font-weight: 600; cursor: pointer; transition: var(--transition-smooth); position: relative; }
-        .rest-tab-btn.active, .rest-tab-btn:hover { color: #fff; }
-        .rest-tab-btn.active::after { content: ''; position: absolute; bottom: -16px; left: 0; width: 100%; height: 3px; background: var(--magical-gradient); border-radius: 2px; }
-        .rest-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .rest-card { background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px; padding: 20px; display: flex; flex-direction: column; justify-content: center; gap: 8px; transition: var(--transition-smooth); }
-        .rest-card:hover { border-color: rgba(255,255,255,0.15); background-color: var(--bg-card-hover); }
-        .rest-info-top h4 { font-size: 18px; margin-bottom: 0px; display: flex; align-items: center; gap: 10px; }
-        .rest-info-top h4 i { color: var(--gold); }
-        .rest-meta { font-size: 13px; color: var(--gold); margin-top: 5px; font-weight: 600; }
+        .rest-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 15px;
+        }
+
+        .rest-tab-btn {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            padding: 10px 16px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            position: relative;
+        }
+
+        .rest-tab-btn.active, .rest-tab-btn:hover {
+            color: #fff;
+        }
+
+        .rest-tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -16px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--magical-gradient);
+            border-radius: 2px;
+        }
+
+        .rest-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .rest-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 8px;
+            transition: var(--transition-smooth);
+        }
+
+        .rest-card:hover {
+            border-color: rgba(255,255,255,0.15);
+            background-color: var(--bg-card-hover);
+        }
+
+        .rest-info-top h4 {
+            font-size: 18px;
+            margin-bottom: 0px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .rest-info-top h4 i {
+            color: var(--gold);
+        }
 
         /* --- COMPRAS SECTION --- */
-        .shop-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .shop-card { background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px; padding: 24px; transition: var(--transition-smooth); }
-        .shop-card:hover { transform: translateY(-4px); border-color: rgba(255,255,255,0.15); }
-        .shop-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
-        .shop-header i { font-size: 20px; color: var(--accent-compras); }
+        .shop-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .shop-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 24px;
+            transition: var(--transition-smooth);
+        }
+
+        .shop-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(255,255,255,0.15);
+        }
+
+        .shop-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .shop-header i {
+            font-size: 20px;
+            color: var(--accent-compras);
+        }
+
         .shop-header h3 { font-size: 19px; }
-        .shop-tips-list { list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 14px; }
-        .shop-tips-list li { display: flex; gap: 10px; line-height: 1.4; }
-        .shop-tips-list li i { color: var(--gold); margin-top: 3px; font-size: 12px; }
+        .shop-tips-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            font-size: 14px;
+        }
+
+        .shop-tips-list li {
+            display: flex;
+            gap: 10px;
+            line-height: 1.4;
+        }
+
+        .shop-tips-list li i {
+            color: var(--gold);
+            margin-top: 3px;
+            font-size: 12px;
+        }
 
         /* --- DICAS GERAIS --- */
-        .tips-accordion { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .tip-box { background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px; padding: 24px; }
-        .tip-box h3 { font-size: 17px; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; color: #fff; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; }
+        .tips-accordion {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .tip-box {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 24px;
+        }
+
+        .tip-box h3 {
+            font-size: 17px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #fff;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
         .tip-box h3 i { color: var(--gold); }
-        .tip-box p { font-size: 14px; color: var(--text-muted); line-height: 1.5; }
+        .tip-box p {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
 
         /* --- BACK TO TOP --- */
-        .back-to-top { position: fixed; bottom: 30px; right: 30px; background: var(--magical-gradient); color: white; width: 45px; height: 45px; border-radius: 50%; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 18px; opacity: 0; visibility: hidden; transition: var(--transition-smooth); z-index: 99; box-shadow: 0 4px 15px rgba(0,0,0,0.4); }
-        .back-to-top.show { opacity: 1; visibility: visible; }
-        .back-to-top:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(124, 58, 237, 0.4); }
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--magical-gradient);
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition-smooth);
+            z-index: 99;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(124, 58, 237, 0.4);
+        }
 
         /* --- RESPONSIVENESS --- */
         @media (max-width: 992px) {
-            .sidebar { left: -100%; }
-            .sidebar.open { left: 0; }
-            .main-content { margin-left: 0; width: 100%; padding-top: 60px; }
-            .mobile-header { display: flex; }
+            .sidebar {
+                left: -100%;
+            }
+            .sidebar.open {
+                left: 0;
+            }
+            .main-content {
+                margin-left: 0;
+                width: 100%;
+                padding-top: 60px;
+            }
+            .mobile-header {
+                display: flex;
+            }
             .hero h1 { font-size: 38px; }
             .hero p { font-size: 16px; }
             .section { padding: 50px 20px; }
-            .day-header { grid-template-columns: 1fr; gap: 12px; text-align: center; justify-items: center; }
-            .day-details-inner { grid-template-columns: 1fr; }
+            .day-header {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                text-align: center;
+                justify-items: center;
+            }
+            .day-details-inner {
+                grid-template-columns: 1fr;
+            }
             .day-number { width: 100%; max-width: 150px; }
         }
     </style>
@@ -353,6 +1125,46 @@
                     <div class="day-header">
                         <div class="day-number"><span>Dia 02</span>19/08</div>
                         <div class="day-title-block">
+                            <h3>Animal Kingdom & Apple Store</h3>
+                            <p>Parque: 08:00 - 18:00. O parque fecha mais cedo. Depois, visita à Apple Store.</p>
+                        </div>
+                        <span class="day-badge badge-disney">Disney</span>
+                        <div class="day-toggle-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                    </div>
+                    <div class="day-content">
+                        <div class="day-details-inner">
+                            <div class="timeline-blocks">
+<div class="time-block">
+                                    <div class="time-icon"><i class="fa-solid fa-car"></i></div>
+                                    <div class="time-info"><strong>Manhã</strong><p>Sair de casa: 07:10. Roupas de secagem rápida (brinquedos molham).</p></div>
+                                </div>
+                                <div class="time-block">
+                                    <div class="time-icon"><i class="fa-solid fa-burger"></i></div>
+                                    <div class="time-info"><strong>Alimentação</strong><p>Satu'li Canteen é a primeira opção (uma das melhores refeições da Disney com bowls personalizáveis). Prove o Night Blossom no Pongu Pongu.</p></div>
+                                </div>
+<div class="time-block">
+                                    <div class="time-icon"><i class="fa-brands fa-apple"></i></div>
+                                    <div class="time-info"><strong>Noite</strong><p>Apple Store (Florida Mall fecha às 20:00 ou Mall at Millenia fecha às 21:00).</p></div>
+                                </div>
+                            </div>
+                            <div class="day-sidebar-info">
+                                <div class="side-info-card"><h4><i class="fa-solid fa-map"></i> Integração Mapa</h4><p>Use o botão de proximidade para achar o Satu'li Canteen no mapa.</p><a href="#mapa" class="btn-proximity">Ver restaurantes próximos</a></div>
+                                <div class="side-info-card">
+                                    <h4><i class="fa-solid fa-camera"></i> Álbum do Dia</h4>
+                                    <p>Todas as fotos e vídeos deste dia ficam organizados nesta pasta compartilhada do Google Drive. Todos os participantes podem acessar e adicionar novas fotos ao longo da viagem.</p>
+                                    <a href="https://drive.google.com/drive/folders/1x_dFNkHKw14auOMBQ6dpFADntcZfBD_M?usp=share_link" target="_blank" class="btn-album">
+                                        <i class="fa-solid fa-folder-open"></i> Abrir Álbum
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="day-card" data-category="disney">
+                    <div class="day-header">
+                        <div class="day-number"><span>Dia 03</span>20/08</div>
+                        <div class="day-title-block">
                             <h3>Magic Kingdom</h3>
                             <p>Parque: 09:00 às 22:00. Chegar na Main Street às 08:00.</p>
                         </div>
@@ -380,7 +1192,7 @@
                                 <div class="side-info-card">
                                     <h4><i class="fa-solid fa-camera"></i> Álbum do Dia</h4>
                                     <p>Todas as fotos e vídeos deste dia ficam organizados nesta pasta compartilhada do Google Drive. Todos os participantes podem acessar e adicionar novas fotos ao longo da viagem.</p>
-                                    <a href="https://drive.google.com/drive/folders/1x_dFNkHKw14auOMBQ6dpFADntcZfBD_M?usp=share_link" target="_blank" class="btn-album">
+                                    <a href="https://drive.google.com/drive/folders/1PFSHJF4U4jpzUD23AvAPM4nnoSwdEKPl?usp=share_link" target="_blank" class="btn-album">
                                         <i class="fa-solid fa-folder-open"></i> Abrir Álbum
                                     </a>
                                 </div>
@@ -391,10 +1203,10 @@
 
                 <div class="day-card" data-category="compras">
                     <div class="day-header">
-                        <div class="day-number"><span>Dia 03</span>20/08</div>
+                        <div class="day-number"><span>Dia 04</span>21/08</div>
                         <div class="day-title-block">
-                            <h3>Dia de Compras</h3>
-                            <p>Dia inteiramente dedicado a compras em outlets.</p>
+                            <h3>Dia de Compras & Disney Springs</h3>
+                            <p>Orlando Outlet Marketplace, International Premium Outlets e Jantar no Disney Springs.</p>
                         </div>
                         <span class="day-badge badge-compras">Compras</span>
                         <div class="day-toggle-icon"><i class="fa-solid fa-chevron-down"></i></div>
@@ -402,9 +1214,13 @@
                     <div class="day-content">
                         <div class="day-details-inner">
                             <div class="timeline-blocks">
-                                <div class="time-block">
+<div class="time-block">
                                     <div class="time-icon"><i class="fa-solid fa-bag-shopping"></i></div>
-                                    <div class="time-info"><strong>Dia Todo</strong><p>Aproveite os Premium Outlets e lojas de departamento da região. Consulte o Mapa Interativo para traçar as rotas.</p></div>
+                                    <div class="time-info"><strong>Dia Todo</strong><p>Compras no Orlando Outlet Marketplace e Orlando International Premium Outlets.</p></div>
+                                </div>
+                                <div class="time-block">
+                                    <div class="time-icon"><i class="fa-solid fa-utensils"></i></div>
+                                    <div class="time-info"><strong>Noite</strong><p>Jantar no Disney Springs.</p></div>
                                 </div>
                             </div>
                             <div class="day-sidebar-info">
@@ -412,7 +1228,7 @@
                                 <div class="side-info-card">
                                     <h4><i class="fa-solid fa-camera"></i> Álbum do Dia</h4>
                                     <p>Todas as fotos e vídeos deste dia ficam organizados nesta pasta compartilhada do Google Drive. Todos os participantes podem acessar e adicionar novas fotos ao longo da viagem.</p>
-                                    <a href="https://drive.google.com/drive/folders/1PFSHJF4U4jpzUD23AvAPM4nnoSwdEKPl?usp=share_link" target="_blank" class="btn-album">
+                                    <a href="https://drive.google.com/drive/folders/1jVPTRK0std5MdbpI2-cEoeWXStjW0D_k?usp=share_link" target="_blank" class="btn-album">
                                         <i class="fa-solid fa-folder-open"></i> Abrir Álbum
                                     </a>
                                 </div>
@@ -423,7 +1239,7 @@
 
                 <div class="day-card" data-category="disney">
                     <div class="day-header">
-                        <div class="day-number"><span>Dia 04</span>21/08</div>
+                        <div class="day-number"><span>Dia 05</span>22/08</div>
                         <div class="day-title-block">
                             <h3>Hollywood Studios</h3>
                             <p>Parque: 09:00 - 22:00. Conferir horários dos shows logo pela manhã.</p>
@@ -448,42 +1264,6 @@
                                 <div class="side-info-card">
                                     <h4><i class="fa-solid fa-camera"></i> Álbum do Dia</h4>
                                     <p>Todas as fotos e vídeos deste dia ficam organizados nesta pasta compartilhada do Google Drive. Todos os participantes podem acessar e adicionar novas fotos ao longo da viagem.</p>
-                                    <a href="https://drive.google.com/drive/folders/1jVPTRK0std5MdbpI2-cEoeWXStjW0D_k?usp=share_link" target="_blank" class="btn-album">
-                                        <i class="fa-solid fa-folder-open"></i> Abrir Álbum
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="day-card" data-category="disney">
-                    <div class="day-header">
-                        <div class="day-number"><span>Dia 05</span>22/08</div>
-                        <div class="day-title-block">
-                            <h3>Animal Kingdom</h3>
-                            <p>Parque: 08:00 - 18:00. O parque fecha mais cedo.</p>
-                        </div>
-                        <span class="day-badge badge-disney">Disney</span>
-                        <div class="day-toggle-icon"><i class="fa-solid fa-chevron-down"></i></div>
-                    </div>
-                    <div class="day-content">
-                        <div class="day-details-inner">
-                            <div class="timeline-blocks">
-                                <div class="time-block">
-                                    <div class="time-icon"><i class="fa-solid fa-car"></i></div>
-                                    <div class="time-info"><strong>Manhã</strong><p>Sair de casa: 07:10. Roupas de secagem rápida (brinquedos molham).</p></div>
-                                </div>
-                                <div class="time-block">
-                                    <div class="time-icon"><i class="fa-solid fa-burger"></i></div>
-                                    <div class="time-info"><strong>Alimentação</strong><p>Satu'li Canteen é a primeira opção (uma das melhores refeições da Disney com bowls personalizáveis). Prove o Night Blossom no Pongu Pongu.</p></div>
-                                </div>
-                            </div>
-                            <div class="day-sidebar-info">
-                                <div class="side-info-card"><h4><i class="fa-solid fa-map"></i> Integração Mapa</h4><p>Use o botão de proximidade para achar o Satu'li Canteen no mapa.</p><a href="#mapa" class="btn-proximity">Ver restaurantes próximos</a></div>
-                                <div class="side-info-card">
-                                    <h4><i class="fa-solid fa-camera"></i> Álbum do Dia</h4>
-                                    <p>Todas as fotos e vídeos deste dia ficam organizados nesta pasta compartilhada do Google Drive. Todos os participantes podem acessar e adicionar novas fotos ao longo da viagem.</p>
                                     <a href="https://drive.google.com/drive/folders/135Xz-VaNiPFECcfmhejy83o3DfhGcpE-?usp=share_link" target="_blank" class="btn-album">
                                         <i class="fa-solid fa-folder-open"></i> Abrir Álbum
                                     </a>
@@ -497,8 +1277,8 @@
                     <div class="day-header">
                         <div class="day-number"><span>Dia 06</span>23/08</div>
                         <div class="day-title-block">
-                            <h3>Volcano Bay + Show de Fogos Universal</h3>
-                            <p>Volcano Bay abre: 09:00-19:00. Show de fogos: 21h.</p>
+                            <h3>Volcano Bay & Universal Orlando</h3>
+                            <p>Volcano Bay de dia. À noite, Universal Orlando e CityWalk.</p>
                         </div>
                         <span class="day-badge badge-universal">Universal</span>
                         <div class="day-toggle-icon"><i class="fa-solid fa-chevron-down"></i></div>
@@ -506,13 +1286,13 @@
                     <div class="day-content">
                         <div class="day-details-inner">
                             <div class="timeline-blocks">
-                                <div class="time-block">
+<div class="time-block">
                                     <div class="time-icon"><i class="fa-solid fa-water"></i></div>
                                     <div class="time-info"><strong>Dia</strong><p>Aproveite o Volcano Bay das 09:00 às 19:00.</p></div>
                                 </div>
                                 <div class="time-block">
-                                    <div class="time-icon"><i class="fa-solid fa-fire-burst"></i></div>
-                                    <div class="time-info"><strong>Noite</strong><p>Deslocamento para a Universal Studios para assistir ao show de fogos às 21h.</p></div>
+                                    <div class="time-icon"><i class="fa-solid fa-moon"></i></div>
+                                    <div class="time-info"><strong>Noite</strong><p>Universal Orlando (assistir ao show de luzes) e aproveitar o CityWalk.</p></div>
                                 </div>
                             </div>
                             <div class="day-sidebar-info">
@@ -532,8 +1312,8 @@
                     <div class="day-header">
                         <div class="day-number"><span>Dia 07</span>24/08</div>
                         <div class="day-title-block">
-                            <h3>EPCOT</h3>
-                            <p>Parque: 09:00 - 21:00. Dia de Drinking around the world!</p>
+                            <h3>EPCOT & The Loop</h3>
+                            <p>Parque: 09:00 - 21:00. Após o parque, ir ao The Loop.</p>
                         </div>
                         <span class="day-badge badge-disney">Disney</span>
                         <div class="day-toggle-icon"><i class="fa-solid fa-chevron-down"></i></div>
@@ -553,6 +1333,10 @@
                                     <div class="time-icon"><i class="fa-solid fa-burger"></i></div>
                                     <div class="time-info"><strong>Alimentação</strong><p>Sunshine Seasons (melhor custo-benefício), Kringla Bakeri Og Kafe (School Bread), e Les Halles Boulangerie-Patisserie na França.</p></div>
                                 </div>
+<div class="time-block">
+                                    <div class="time-icon"><i class="fa-solid fa-bag-shopping"></i></div>
+                                    <div class="time-info"><strong>Noite</strong><p>Após o parque, The Loop para compras e passeio noturno.</p></div>
+                                </div>
                             </div>
                             <div class="day-sidebar-info">
                                 <div class="side-info-card"><h4><i class="fa-solid fa-eye"></i> Visualização</h4><p>Melhor área para assistir aos fogos é no pavilhão da Itália.</p></div>
@@ -568,29 +1352,30 @@
                     </div>
                 </div>
 
-                <div class="day-card" data-category="universal">
+                <div class="day-card" data-category="compras">
                     <div class="day-header">
                         <div class="day-number"><span>Dia 08</span>25/08</div>
                         <div class="day-title-block">
-                            <h3>Universal Studios</h3>
-                            <p>Parque: 08:00 - 18:00. Levar Copo da Universal.</p>
+                            <h3>Compras & Jantar</h3>
+                            <p>Lake Buena Vista Factory Stores e jantar no Ishiban.</p>
                         </div>
-                        <span class="day-badge badge-universal">Universal</span>
+                        <span class="day-badge badge-compras">Compras</span>
                         <div class="day-toggle-icon"><i class="fa-solid fa-chevron-down"></i></div>
                     </div>
                     <div class="day-content">
                         <div class="day-details-inner">
                             <div class="timeline-blocks">
-                                <div class="time-block">
-                                    <div class="time-icon"><i class="fa-solid fa-car"></i></div>
-                                    <div class="time-info"><strong>Manhã</strong><p>Sair de casa: 06:40. Opte por pochete ou mochila menor pois há lockers na maioria dos brinquedos.</p></div>
+<div class="time-block">
+                                    <div class="time-icon"><i class="fa-solid fa-bag-shopping"></i></div>
+                                    <div class="time-info"><strong>Dia</strong><p>Compras no Lake Buena Vista Factory Stores.</p></div>
                                 </div>
                                 <div class="time-block">
-                                    <div class="time-icon"><i class="fa-solid fa-burger"></i></div>
-                                    <div class="time-info"><strong>Alimentação</strong><p>Leaky Cauldron, Florean Fortescue's Ice-Cream Parlour e quiosques de Butterbeer na área de Harry Potter.</p></div>
+                                    <div class="time-icon"><i class="fa-solid fa-fish"></i></div>
+                                    <div class="time-info"><strong>Noite</strong><p>Jantar especial no restaurante Ishiban.</p></div>
                                 </div>
                             </div>
                             <div class="day-sidebar-info">
+                                <div class="side-info-card"><h4><i class="fa-solid fa-map"></i> Integração Mapa</h4><p>Acesse o mapa para planejar sua rota de outlets e lojas.</p><a href="#mapa" class="btn-proximity">Ver lojas próximas</a></div>
                                 <div class="side-info-card">
                                     <h4><i class="fa-solid fa-camera"></i> Álbum do Dia</h4>
                                     <p>Todas as fotos e vídeos deste dia ficam organizados nesta pasta compartilhada do Google Drive. Todos os participantes podem acessar e adicionar novas fotos ao longo da viagem.</p>
@@ -606,6 +1391,84 @@
                 <div class="day-card" data-category="universal">
                     <div class="day-header">
                         <div class="day-number"><span>Dia 09</span>26/08</div>
+                        <div class="day-title-block">
+                            <h3>Universal Studios & CityWalk</h3>
+                            <p>Parque: 08:00 - 18:00. À noite, voltar ao CityWalk.</p>
+                        </div>
+                        <span class="day-badge badge-universal">Universal</span>
+                        <div class="day-toggle-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                    </div>
+                    <div class="day-content">
+                        <div class="day-details-inner">
+                            <div class="timeline-blocks">
+                                <div class="time-block">
+                                    <div class="time-icon"><i class="fa-solid fa-car"></i></div>
+                                    <div class="time-info"><strong>Manhã</strong><p>Sair de casa: 06:40. Opte por pochete ou mochila menor pois há lockers na maioria dos brinquedos.</p></div>
+                                </div>
+                                <div class="time-block">
+                                    <div class="time-icon"><i class="fa-solid fa-burger"></i></div>
+                                    <div class="time-info"><strong>Alimentação</strong><p>Leaky Cauldron, Florean Fortescue's Ice-Cream Parlour e quiosques de Butterbeer na área de Harry Potter.</p></div>
+                                </div>
+<div class="time-block">
+                                    <div class="time-icon"><i class="fa-solid fa-moon"></i></div>
+                                    <div class="time-info"><strong>Noite</strong><p>Voltar ao CityWalk para aproveitar as atrações e restaurantes.</p></div>
+                                </div>
+                            </div>
+                            <div class="day-sidebar-info">
+                                <div class="side-info-card">
+                                    <h4><i class="fa-solid fa-camera"></i> Álbum do Dia</h4>
+                                    <p>Todas as fotos e vídeos deste dia ficam organizados nesta pasta compartilhada do Google Drive. Todos os participantes podem acessar e adicionar novas fotos ao longo da viagem.</p>
+                                    <a href="https://drive.google.com/drive/folders/1TfWfXh8tqepNCnQ0hVVVfmWI6R8ccY4c?usp=share_link" target="_blank" class="btn-album">
+                                        <i class="fa-solid fa-folder-open"></i> Abrir Álbum
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="day-card" data-category="outros">
+                    <div class="day-header">
+                        <div class="day-number"><span>Dia 10</span>27/08</div>
+                        <div class="day-title-block">
+                            <h3>SeaWorld & Vineland Outlets</h3>
+                            <p>Parque: 09:00 - 19:00. Após o parque, Vineland Premium Outlets.</p>
+                        </div>
+                        <span class="day-badge badge-outros">Outros Parques</span>
+                        <div class="day-toggle-icon"><i class="fa-solid fa-chevron-down"></i></div>
+                    </div>
+                    <div class="day-content">
+                        <div class="day-details-inner">
+                            <div class="timeline-blocks">
+                                <div class="time-block">
+                                    <div class="time-icon"><i class="fa-solid fa-car"></i></div>
+                                    <div class="time-info"><strong>Manhã</strong><p>Sair de casa: 08:00. Café da manhã via Dining Plan no Seafire Grill ou Panini Shore Café (até aprox. 11h).</p></div>
+                                </div>
+                                <div class="time-block">
+                                    <div class="time-icon"><i class="fa-solid fa-burger"></i></div>
+                                    <div class="time-info"><strong>Refeições (Dining Plan)</strong><p>Voyager's Smokehouse, Expedition Café, Lakeside Grill, etc.</p></div>
+                                </div>
+<div class="time-block">
+                                    <div class="time-icon"><i class="fa-solid fa-bag-shopping"></i></div>
+                                    <div class="time-info"><strong>Noite</strong><p>Após o parque: Orlando Vineland Premium Outlets (Fecha às 21:00).</p></div>
+                                </div>
+                            </div>
+                            <div class="day-sidebar-info">
+                                <div class="side-info-card">
+                                    <h4><i class="fa-solid fa-camera"></i> Álbum do Dia</h4>
+                                    <p>Todas as fotos e vídeos deste dia ficam organizados nesta pasta compartilhada do Google Drive. Todos os participantes podem acessar e adicionar novas fotos ao longo da viagem.</p>
+                                    <a href="https://drive.google.com/drive/folders/13Dp50_AwPUys9lj9SL9eK6wJncfXD2Jd?usp=share_link" target="_blank" class="btn-album">
+                                        <i class="fa-solid fa-folder-open"></i> Abrir Álbum
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="day-card" data-category="universal">
+                    <div class="day-header">
+                        <div class="day-number"><span>Dia 11</span>28/08</div>
                         <div class="day-title-block">
                             <h3>Island of Adventure</h3>
                             <p>Parque: 09:00 - 21:00. Brinquedos molham MUITO.</p>
@@ -629,73 +1492,6 @@
                                 <div class="side-info-card">
                                     <h4><i class="fa-solid fa-camera"></i> Álbum do Dia</h4>
                                     <p>Todas as fotos e vídeos deste dia ficam organizados nesta pasta compartilhada do Google Drive. Todos os participantes podem acessar e adicionar novas fotos ao longo da viagem.</p>
-                                    <a href="https://drive.google.com/drive/folders/1TfWfXh8tqepNCnQ0hVVVfmWI6R8ccY4c?usp=share_link" target="_blank" class="btn-album">
-                                        <i class="fa-solid fa-folder-open"></i> Abrir Álbum
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="day-card" data-category="outros">
-                    <div class="day-header">
-                        <div class="day-number"><span>Dia 10</span>27/08</div>
-                        <div class="day-title-block">
-                            <h3>Sea World</h3>
-                            <p>Parque: 09:00 - 19:00. Utilizar o Dining Plan.</p>
-                        </div>
-                        <span class="day-badge badge-outros">Outros Parques</span>
-                        <div class="day-toggle-icon"><i class="fa-solid fa-chevron-down"></i></div>
-                    </div>
-                    <div class="day-content">
-                        <div class="day-details-inner">
-                            <div class="timeline-blocks">
-                                <div class="time-block">
-                                    <div class="time-icon"><i class="fa-solid fa-car"></i></div>
-                                    <div class="time-info"><strong>Manhã</strong><p>Sair de casa: 08:00. Café da manhã via Dining Plan no Seafire Grill ou Panini Shore Café (até aprox. 11h).</p></div>
-                                </div>
-                                <div class="time-block">
-                                    <div class="time-icon"><i class="fa-solid fa-burger"></i></div>
-                                    <div class="time-info"><strong>Refeições (Dining Plan)</strong><p>Voyager's Smokehouse, Expedition Café, Lakeside Grill, etc.</p></div>
-                                </div>
-                            </div>
-                            <div class="day-sidebar-info">
-                                <div class="side-info-card">
-                                    <h4><i class="fa-solid fa-camera"></i> Álbum do Dia</h4>
-                                    <p>Todas as fotos e vídeos deste dia ficam organizados nesta pasta compartilhada do Google Drive. Todos os participantes podem acessar e adicionar novas fotos ao longo da viagem.</p>
-                                    <a href="https://drive.google.com/drive/folders/13Dp50_AwPUys9lj9SL9eK6wJncfXD2Jd?usp=share_link" target="_blank" class="btn-album">
-                                        <i class="fa-solid fa-folder-open"></i> Abrir Álbum
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="day-card" data-category="compras">
-                    <div class="day-header">
-                        <div class="day-number"><span>Dia 11</span>28/08</div>
-                        <div class="day-title-block">
-                            <h3>Compras + Universal (Repetição) + City Walk</h3>
-                            <p>Universal Studios (08-17h) e Island of Adventure (09-21h).</p>
-                        </div>
-                        <span class="day-badge badge-compras">Misto</span>
-                        <div class="day-toggle-icon"><i class="fa-solid fa-chevron-down"></i></div>
-                    </div>
-                    <div class="day-content">
-                        <div class="day-details-inner">
-                            <div class="timeline-blocks">
-                                <div class="time-block">
-                                    <div class="time-icon"><i class="fa-solid fa-rotate-right"></i></div>
-                                    <div class="time-info"><strong>Dia Todo</strong><p>Divida o dia entre as compras pendentes, e repita os brinquedos preferidos nos complexos da Universal, fechando a noite no City Walk.</p></div>
-                                </div>
-                            </div>
-                            <div class="day-sidebar-info">
-                                <div class="side-info-card"><h4><i class="fa-solid fa-map"></i> Integração Mapa</h4><p>Use a função "Minha Localização" no mapa para achar lojas próximas à Universal.</p><a href="#mapa" class="btn-proximity">Ver locais próximos</a></div>
-                                <div class="side-info-card">
-                                    <h4><i class="fa-solid fa-camera"></i> Álbum do Dia</h4>
-                                    <p>Todas as fotos e vídeos deste dia ficam organizados nesta pasta compartilhada do Google Drive. Todos os participantes podem acessar e adicionar novas fotos ao longo da viagem.</p>
                                     <a href="https://drive.google.com/drive/folders/1ZSp3RiElOv2m2RqUxKdxjETePFhqAnp1?usp=share_link" target="_blank" class="btn-album">
                                         <i class="fa-solid fa-folder-open"></i> Abrir Álbum
                                     </a>
@@ -709,8 +1505,8 @@
                     <div class="day-header">
                         <div class="day-number"><span>Dia 12</span>29/08</div>
                         <div class="day-title-block">
-                            <h3>Busch Gardens</h3>
-                            <p>Uso de Dining Plan incluído. Troca de roupa recomendada pois há brinquedos que molham.</p>
+                            <h3>Busch Gardens & Ross</h3>
+                            <p>Uso de Dining Plan incluído. Na volta, Ross de Tampa.</p>
                         </div>
                         <span class="day-badge badge-outros">Outros Parques</span>
                         <div class="day-toggle-icon"><i class="fa-solid fa-chevron-down"></i></div>
@@ -725,6 +1521,10 @@
                                 <div class="time-block">
                                     <div class="time-icon"><i class="fa-solid fa-utensils"></i></div>
                                     <div class="time-info"><strong>Refeições (Dining Plan)</strong><p>Zambia Smokehouse, Dragon Fire Grill, e TOMA at Orang Café.</p></div>
+                                </div>
+<div class="time-block">
+                                    <div class="time-icon"><i class="fa-solid fa-bag-shopping"></i></div>
+                                    <div class="time-info"><strong>Tarde/Noite</strong><p>Na volta, passar na Ross de Tampa para compras.</p></div>
                                 </div>
                             </div>
                             <div class="day-sidebar-info">
@@ -780,8 +1580,8 @@
                     <div class="day-header">
                         <div class="day-number"><span>Dia 14</span>31/08</div>
                         <div class="day-title-block">
-                            <h3>Descanso + Parque Público + Compras</h3>
-                            <p>Dia para relaxar e fazer compras pontuais em shoppings.</p>
+                            <h3>Wekiwa Springs & Winter Garden</h3>
+                            <p>Passeio natural, compras e repetir um parque da Universal.</p>
                         </div>
                         <span class="day-badge badge-descanso">Descanso</span>
                         <div class="day-toggle-icon"><i class="fa-solid fa-chevron-down"></i></div>
@@ -789,9 +1589,13 @@
                     <div class="day-content">
                         <div class="day-details-inner">
                             <div class="timeline-blocks">
-                                <div class="time-block">
+<div class="time-block">
                                     <div class="time-icon"><i class="fa-solid fa-tree"></i></div>
-                                    <div class="time-info"><strong>Dia</strong><p>Aproveite um parque público local para descansar da rotina intensa e visite lojas faltantes na região usando o Mapa.</p></div>
+                                    <div class="time-info"><strong>Dia</strong><p>Wekiwa Springs State Park e compras no Winter Garden Village.</p></div>
+                                </div>
+                                <div class="time-block">
+                                    <div class="time-icon"><i class="fa-solid fa-rotate-right"></i></div>
+                                    <div class="time-info"><strong>Noite</strong><p>Repetir um parque da Universal (à sua escolha).</p></div>
                                 </div>
                             </div>
                             <div class="day-sidebar-info">
@@ -811,8 +1615,8 @@
                     <div class="day-header">
                         <div class="day-number"><span>Dia 15</span>01/09</div>
                         <div class="day-title-block">
-                            <h3>Repetir Epic Universe + Compras</h3>
-                            <p>Dia extra para focar no que faltou no Epic Universe e compras de última hora.</p>
+                            <h3>Compras & Epic Universe</h3>
+                            <p>Compras pela manhã e retorno ao Epic Universe.</p>
                         </div>
                         <span class="day-badge badge-universal">Universal</span>
                         <div class="day-toggle-icon"><i class="fa-solid fa-chevron-down"></i></div>
@@ -820,9 +1624,13 @@
                     <div class="day-content">
                         <div class="day-details-inner">
                             <div class="timeline-blocks">
+<div class="time-block">
+                                    <div class="time-icon"><i class="fa-solid fa-bag-shopping"></i></div>
+                                    <div class="time-info"><strong>Manhã</strong><p>Compras pendentes na região.</p></div>
+                                </div>
                                 <div class="time-block">
                                     <div class="time-icon"><i class="fa-solid fa-rotate-right"></i></div>
-                                    <div class="time-info"><strong>O Dia Todo</strong><p>Retorno ao Epic Universe para repetir as atrações favoritas e mais compras.</p></div>
+                                    <div class="time-info"><strong>Tarde/Noite</strong><p>Repetir Epic Universe.</p></div>
                                 </div>
                             </div>
                             <div class="day-sidebar-info">
@@ -842,8 +1650,8 @@
                     <div class="day-header">
                         <div class="day-number"><span>Dia 16</span>02/09</div>
                         <div class="day-title-block">
-                            <h3>Aniver Chris + Churrasco em casa + Universal</h3>
-                            <p>Dia de comemoração especial!</p>
+                            <h3>Aniver Chris, Churrasco & Balada</h3>
+                            <p>Dia de comemoração especial com compras, churrasco e Balada Country.</p>
                         </div>
                         <span class="day-badge badge-descanso">Especial</span>
                         <div class="day-toggle-icon"><i class="fa-solid fa-chevron-down"></i></div>
@@ -851,13 +1659,17 @@
                     <div class="day-content">
                         <div class="day-details-inner">
                             <div class="timeline-blocks">
-                                <div class="time-block">
-                                    <div class="time-icon"><i class="fa-solid fa-cake-candles"></i></div>
-                                    <div class="time-info"><strong>Dia</strong><p>Churrasco comemorativo na casa alugada.</p></div>
+<div class="time-block">
+                                    <div class="time-icon"><i class="fa-solid fa-bag-shopping"></i></div>
+                                    <div class="time-info"><strong>Manhã</strong><p>Compras pela manhã.</p></div>
                                 </div>
                                 <div class="time-block">
-                                    <div class="time-icon"><i class="fa-solid fa-moon"></i></div>
-                                    <div class="time-info"><strong>Noite</strong><p>Ida aos parques da Universal para curtir a noite do aniversário.</p></div>
+                                    <div class="time-icon"><i class="fa-solid fa-cake-candles"></i></div>
+                                    <div class="time-info"><strong>Tarde</strong><p>Churrasco comemorativo na casa alugada.</p></div>
+                                </div>
+                                <div class="time-block">
+                                    <div class="time-icon"><i class="fa-solid fa-music"></i></div>
+                                    <div class="time-info"><strong>Noite</strong><p>Balada Country para celebrar o aniversário!</p></div>
                                 </div>
                             </div>
                             <div class="day-sidebar-info">
@@ -909,8 +1721,8 @@
                     <div class="day-header">
                         <div class="day-number"><span>Dia 18</span>04/09</div>
                         <div class="day-title-block">
-                            <h3>Despedida Universal + Arrumar Mala</h3>
-                            <p>Último dia para repetir os parques da Universal e organizar o retorno.</p>
+                            <h3>Últimas Compras & Universal</h3>
+                            <p>Últimas compras do roteiro e despedida na Universal.</p>
                         </div>
                         <span class="day-badge badge-universal">Universal</span>
                         <div class="day-toggle-icon"><i class="fa-solid fa-chevron-down"></i></div>
@@ -918,13 +1730,13 @@
                     <div class="day-content">
                         <div class="day-details-inner">
                             <div class="timeline-blocks">
-                                <div class="time-block">
-                                    <div class="time-icon"><i class="fa-solid fa-rotate-right"></i></div>
-                                    <div class="time-info"><strong>Dia</strong><p>Visita final ao Universal Studios e Island of Adventure.</p></div>
+<div class="time-block">
+                                    <div class="time-icon"><i class="fa-solid fa-bag-shopping"></i></div>
+                                    <div class="time-info"><strong>Dia</strong><p>Últimas compras pendentes.</p></div>
                                 </div>
                                 <div class="time-block">
-                                    <div class="time-icon"><i class="fa-solid fa-suitcase"></i></div>
-                                    <div class="time-info"><strong>Noite</strong><p>Arrumar as malas pesadas, organizar compras e descanso final.</p></div>
+                                    <div class="time-icon"><i class="fa-solid fa-rotate-right"></i></div>
+                                    <div class="time-info"><strong>Tarde/Noite</strong><p>Repetir Universal Studios e organizar as malas para o retorno.</p></div>
                                 </div>
                             </div>
                             <div class="day-sidebar-info">
